@@ -19,6 +19,12 @@ namespace wcf_fullcarwash
 
         [OperationContract]
         Boolean updatecustomer(customers objcustomer);
+
+        [OperationContract]
+        Boolean deletecustomer(int id);
+
+        [OperationContract]
+        customers getcustomerById(int id);        
     }
 
     [DataContract]
