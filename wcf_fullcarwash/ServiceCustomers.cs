@@ -109,6 +109,63 @@ namespace wcf_fullcarwash
                 value = false;
             }
             return value;           
-        }        
+        }
+
+        public Boolean deletecustomer(int id)
+        {
+            fullcarwashEntities model = new fullcarwashEntities();
+
+            try
+            {
+                Customers objcust = (from objc in model.Customers
+                                     where objc.idCustomer == id
+                                     select objc).FirstOrDefault();
+
+                model.Customers.Remove(objcust);
+                model.SaveChanges();
+
+                value = true;
+
+            }
+            catch (EntityException ex)
+            {
+                ex.Message.ToString();
+                value = false;
+            }
+
+            return value;
+        }
+
+
+        public customers getcustomerById(int id)
+        {
+            fullcarwashEntities model = new fullcarwashEntities();
+            customers objcust = new customers();
+
+            try
+            {
+                Customers objcustomer = (from objc in model.Customers
+                                         where objc.idCustomer == id
+                                         select objc).FirstOrDefault();
+
+                objcust.id = objcustomer.idCustomer;
+                objcust.firstname = objcustomer.firstName;
+                objcust.lastname = objcustomer.lastName;
+                objcust.fullname = objcustomer.fullName;
+                objcust.gender = objcustomer.gender;
+                objcust.birthdate = objcustomer.birthdate;
+                objcust.phone = objcustomer.phone;
+                objcust.email = objcustomer.email;
+                objcust.numberdni = objcustomer.number_dni;
+                objcust.address = objcustomer.address;
+                objcust.password = objcustomer.password;
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                throw ex;
+            }
+            return objcust;
+        }
     }
 }
