@@ -57,7 +57,7 @@ namespace wcf_fullcarwash
 
                 objcust.firstName = objcustomer.firstname;
                 objcust.lastName = objcustomer.lastname;
-                objcust.fullName = objcustomer.firstname + " " + objcustomer.lastname;
+                objcust.fullName = objcust.firstName + " " + objcust.lastName;
                 objcust.gender = objcustomer.gender;
                 objcust.birthdate = objcustomer.birthdate;
                 objcust.phone = objcustomer.phone;
