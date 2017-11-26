@@ -15,7 +15,7 @@ namespace wcf_fullcarwash
         List<customers> getcustomers();
 
         [OperationContract]
-        String insertcustomer(customers objcustomer);
+        Boolean insertcustomer(customers objcustomer);
 
         [OperationContract]
         Boolean updatecustomer(customers objcustomer);
