@@ -50,7 +50,8 @@ namespace wcf_fullcarwash
 
         public Boolean insertcustomer(customers objcustomer)
         {
-            fullcarwashEntities model = new fullcarwashEntities();
+            fullcarwashEntities model = new fullcarwashEntities();            
+            
             try
             {
                 Customers objcust = new Customers();
@@ -69,7 +70,7 @@ namespace wcf_fullcarwash
 
                 model.Customers.Add(objcust);
                 model.SaveChanges();
-
+                
                 value = true;
             }
             catch (EntityException ex)
