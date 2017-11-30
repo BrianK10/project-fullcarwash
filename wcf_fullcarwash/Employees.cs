@@ -10,19 +10,25 @@
 namespace wcf_fullcarwash
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class SP_SELECTBYID_CUSTOMERS_Result
+    public partial class Employees
     {
-        public int idCustomer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Employees()
+        {
+            this.Reservation = new HashSet<Reservation>();
+        }
+    
+        public int idEmployee { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string fullName { get; set; }
         public bool gender { get; set; }
-        public System.DateTime birthdate { get; set; }
-        public string phone { get; set; }
         public string email { get; set; }
         public string number_dni { get; set; }
-        public string address { get; set; }
-        public string password { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reservation> Reservation { get; set; }
     }
 }

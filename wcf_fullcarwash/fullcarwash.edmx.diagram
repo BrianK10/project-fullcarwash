@@ -4,8 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a05ae2827ec3479fb3ae0a9868be5929" Name="Diagram1">
-        <EntityTypeShape EntityType="fullcarwashModel.Customers" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="b5089038d9e84c2b89ab9edc514d3b28" Name="Diagram1">
+        <EntityTypeShape EntityType="fullcarwashModel.Customers" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="fullcarwashModel.DetailReservation" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="fullcarwashModel.Employees" Width="1.5" PointX="0.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="fullcarwashModel.Local" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="fullcarwashModel.Reservation" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="fullcarwashModel.Services" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="fullcarwashModel.TypeCars" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="fullcarwashModel.FK_Reservation_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="fullcarwashModel.FK_DetailReservation_Reservation" ManuallyRouted="false" />
+        <AssociationConnector Association="fullcarwashModel.FK_DetailReservation_Services" ManuallyRouted="false" />
+        <AssociationConnector Association="fullcarwashModel.FK_DetailReservation_TypeCars" ManuallyRouted="false" />
+        <AssociationConnector Association="fullcarwashModel.FK_Reservation_DetailReservation" ManuallyRouted="false" />
+        <AssociationConnector Association="fullcarwashModel.FK_Reservation_DetailReservation1" ManuallyRouted="false" />
+        <AssociationConnector Association="fullcarwashModel.FK_Reservation_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="fullcarwashModel.FK_Reservation_Local" ManuallyRouted="false" />
+        <AssociationConnector Association="fullcarwashModel.FK_Services_Local" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

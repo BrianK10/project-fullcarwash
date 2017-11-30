@@ -12,27 +12,23 @@ namespace wcf_fullcarwash
     using System;
     using System.Collections.Generic;
     
-    public partial class Customers
+    public partial class Local
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customers()
+        public Local()
         {
             this.Reservation = new HashSet<Reservation>();
+            this.Services = new HashSet<Services>();
         }
     
-        public int idCustomer { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string fullName { get; set; }
-        public bool gender { get; set; }
-        public System.DateTime birthdate { get; set; }
-        public string phone { get; set; }
-        public string email { get; set; }
-        public string number_dni { get; set; }
+        public int idLocal { get; set; }
+        public string name { get; set; }
         public string address { get; set; }
-        public string password { get; set; }
+        public string schedules { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reservation> Reservation { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Services> Services { get; set; }
     }
 }

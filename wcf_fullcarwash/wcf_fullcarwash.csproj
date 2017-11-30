@@ -56,6 +56,12 @@
     <Compile Include="Customers.cs">
       <DependentUpon>fullcarwash.tt</DependentUpon>
     </Compile>
+    <Compile Include="DetailReservation.cs">
+      <DependentUpon>fullcarwash.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employees.cs">
+      <DependentUpon>fullcarwash.tt</DependentUpon>
+    </Compile>
     <Compile Include="fullcarwash.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -72,12 +78,26 @@
       <DependentUpon>fullcarwash.edmx</DependentUpon>
     </Compile>
     <Compile Include="ICustomers.cs" />
+    <Compile Include="ILocal.cs" />
+    <Compile Include="Local.cs">
+      <DependentUpon>fullcarwash.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservation.cs">
+      <DependentUpon>fullcarwash.tt</DependentUpon>
+    </Compile>
     <Compile Include="ServiceCustomers.cs" />
-    <Compile Include="SP_SELECTBYID_CUSTOMERS_Result.cs">
+    <Compile Include="ServiceLocal.cs" />
+    <Compile Include="Services.cs">
       <DependentUpon>fullcarwash.tt</DependentUpon>
     </Compile>
     <Compile Include="SP_SELECT_CUSTOMERS_Result.cs">
+      <DependentUpon>fullcarwash.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_SELECT_LOCALS_Result.cs">
+      <DependentUpon>fullcarwash.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TypeCars.cs">
       <DependentUpon>fullcarwash.tt</DependentUpon>
     </Compile>
   </ItemGroup>

@@ -28,122 +28,21 @@ namespace wcf_fullcarwash
         }
     
         public virtual DbSet<Customers> Customers { get; set; }
-    
-        public virtual int SP_DELETE_CUSTOMERS(Nullable<int> idCustomer)
-        {
-            var idCustomerParameter = idCustomer.HasValue ?
-                new ObjectParameter("idCustomer", idCustomer) :
-                new ObjectParameter("idCustomer", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DELETE_CUSTOMERS", idCustomerParameter);
-        }
-    
-        public virtual int SP_INSERT_CUSTOMERS(string firstName, string lastName, string fullName, Nullable<bool> gender, Nullable<System.DateTime> birthdate, string phone, string email, string number_dni, string address, string password)
-        {
-            var firstNameParameter = firstName != null ?
-                new ObjectParameter("firstName", firstName) :
-                new ObjectParameter("firstName", typeof(string));
-    
-            var lastNameParameter = lastName != null ?
-                new ObjectParameter("lastName", lastName) :
-                new ObjectParameter("lastName", typeof(string));
-    
-            var fullNameParameter = fullName != null ?
-                new ObjectParameter("fullName", fullName) :
-                new ObjectParameter("fullName", typeof(string));
-    
-            var genderParameter = gender.HasValue ?
-                new ObjectParameter("gender", gender) :
-                new ObjectParameter("gender", typeof(bool));
-    
-            var birthdateParameter = birthdate.HasValue ?
-                new ObjectParameter("birthdate", birthdate) :
-                new ObjectParameter("birthdate", typeof(System.DateTime));
-    
-            var phoneParameter = phone != null ?
-                new ObjectParameter("phone", phone) :
-                new ObjectParameter("phone", typeof(string));
-    
-            var emailParameter = email != null ?
-                new ObjectParameter("email", email) :
-                new ObjectParameter("email", typeof(string));
-    
-            var number_dniParameter = number_dni != null ?
-                new ObjectParameter("number_dni", number_dni) :
-                new ObjectParameter("number_dni", typeof(string));
-    
-            var addressParameter = address != null ?
-                new ObjectParameter("address", address) :
-                new ObjectParameter("address", typeof(string));
-    
-            var passwordParameter = password != null ?
-                new ObjectParameter("password", password) :
-                new ObjectParameter("password", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_INSERT_CUSTOMERS", firstNameParameter, lastNameParameter, fullNameParameter, genderParameter, birthdateParameter, phoneParameter, emailParameter, number_dniParameter, addressParameter, passwordParameter);
-        }
+        public virtual DbSet<DetailReservation> DetailReservation { get; set; }
+        public virtual DbSet<Employees> Employees { get; set; }
+        public virtual DbSet<Local> Local { get; set; }
+        public virtual DbSet<Reservation> Reservation { get; set; }
+        public virtual DbSet<Services> Services { get; set; }
+        public virtual DbSet<TypeCars> TypeCars { get; set; }
     
         public virtual ObjectResult<SP_SELECT_CUSTOMERS_Result> SP_SELECT_CUSTOMERS()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SELECT_CUSTOMERS_Result>("SP_SELECT_CUSTOMERS");
         }
     
-        public virtual ObjectResult<SP_SELECTBYID_CUSTOMERS_Result> SP_SELECTBYID_CUSTOMERS(Nullable<int> idCustomer)
+        public virtual ObjectResult<SP_SELECT_LOCALS_Result> SP_SELECT_LOCALS()
         {
-            var idCustomerParameter = idCustomer.HasValue ?
-                new ObjectParameter("idCustomer", idCustomer) :
-                new ObjectParameter("idCustomer", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SELECTBYID_CUSTOMERS_Result>("SP_SELECTBYID_CUSTOMERS", idCustomerParameter);
-        }
-    
-        public virtual int SP_UPDATE_CUSTOMERS(Nullable<int> idCustomer, string firstName, string lastName, string fullName, Nullable<bool> gender, Nullable<System.DateTime> birthdate, string phone, string email, string number_dni, string address, string password)
-        {
-            var idCustomerParameter = idCustomer.HasValue ?
-                new ObjectParameter("idCustomer", idCustomer) :
-                new ObjectParameter("idCustomer", typeof(int));
-    
-            var firstNameParameter = firstName != null ?
-                new ObjectParameter("firstName", firstName) :
-                new ObjectParameter("firstName", typeof(string));
-    
-            var lastNameParameter = lastName != null ?
-                new ObjectParameter("lastName", lastName) :
-                new ObjectParameter("lastName", typeof(string));
-    
-            var fullNameParameter = fullName != null ?
-                new ObjectParameter("fullName", fullName) :
-                new ObjectParameter("fullName", typeof(string));
-    
-            var genderParameter = gender.HasValue ?
-                new ObjectParameter("gender", gender) :
-                new ObjectParameter("gender", typeof(bool));
-    
-            var birthdateParameter = birthdate.HasValue ?
-                new ObjectParameter("birthdate", birthdate) :
-                new ObjectParameter("birthdate", typeof(System.DateTime));
-    
-            var phoneParameter = phone != null ?
-                new ObjectParameter("phone", phone) :
-                new ObjectParameter("phone", typeof(string));
-    
-            var emailParameter = email != null ?
-                new ObjectParameter("email", email) :
-                new ObjectParameter("email", typeof(string));
-    
-            var number_dniParameter = number_dni != null ?
-                new ObjectParameter("number_dni", number_dni) :
-                new ObjectParameter("number_dni", typeof(string));
-    
-            var addressParameter = address != null ?
-                new ObjectParameter("address", address) :
-                new ObjectParameter("address", typeof(string));
-    
-            var passwordParameter = password != null ?
-                new ObjectParameter("password", password) :
-                new ObjectParameter("password", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_CUSTOMERS", idCustomerParameter, firstNameParameter, lastNameParameter, fullNameParameter, genderParameter, birthdateParameter, phoneParameter, emailParameter, number_dniParameter, addressParameter, passwordParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SELECT_LOCALS_Result>("SP_SELECT_LOCALS");
         }
     }
 }
