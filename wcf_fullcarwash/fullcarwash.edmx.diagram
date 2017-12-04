@@ -7,7 +7,6 @@
       <Diagram DiagramId="b5089038d9e84c2b89ab9edc514d3b28" Name="Diagram1">
         <EntityTypeShape EntityType="fullcarwashModel.Customers" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="fullcarwashModel.DetailReservation" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="fullcarwashModel.Employees" Width="1.5" PointX="0.75" PointY="13.25" IsExpanded="true" />
         <EntityTypeShape EntityType="fullcarwashModel.Local" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="fullcarwashModel.Reservation" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="fullcarwashModel.Services" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
@@ -18,9 +17,10 @@
         <AssociationConnector Association="fullcarwashModel.FK_DetailReservation_TypeCars" ManuallyRouted="false" />
         <AssociationConnector Association="fullcarwashModel.FK_Reservation_DetailReservation" ManuallyRouted="false" />
         <AssociationConnector Association="fullcarwashModel.FK_Reservation_DetailReservation1" ManuallyRouted="false" />
-        <AssociationConnector Association="fullcarwashModel.FK_Reservation_Employees" ManuallyRouted="false" />
         <AssociationConnector Association="fullcarwashModel.FK_Reservation_Local" ManuallyRouted="false" />
         <AssociationConnector Association="fullcarwashModel.FK_Services_Local" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="fullcarwashModel.Employees" Width="1.5" PointX="5.375" PointY="1" />
+        <AssociationConnector Association="fullcarwashModel.FK_Reservation_Employees" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

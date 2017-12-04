@@ -10,16 +10,9 @@
 namespace wcf_fullcarwash
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Employees
+    public partial class SP_SELECT_EMPLOYEES_Result
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Employees()
-        {
-            this.Reservation = new HashSet<Reservation>();
-        }
-    
         public int idEmployee { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
@@ -28,8 +21,5 @@ namespace wcf_fullcarwash
         public string email { get; set; }
         public string number_dni { get; set; }
         public string password { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reservation> Reservation { get; set; }
     }
 }

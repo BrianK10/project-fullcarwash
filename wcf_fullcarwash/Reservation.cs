@@ -30,7 +30,7 @@ namespace wcf_fullcarwash
         public virtual ICollection<DetailReservation> DetailReservation { get; set; }
         public virtual DetailReservation DetailReservation1 { get; set; }
         public virtual DetailReservation DetailReservation2 { get; set; }
-        public virtual Employees Employees { get; set; }
         public virtual Local Local { get; set; }
+        public virtual Employees Employees { get; set; }
     }
 }
