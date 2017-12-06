@@ -28,7 +28,7 @@ namespace wcf_fullcarwash
                     objtypecar.id = Convert.ToInt16(result.idCar);
                     objtypecar.typecar = result.typeCar;
                     objtypecar.price = Convert.ToDouble(result.price);
-                    objtypecar.carregistration = result.carRegistration;
+                    
 
                     objlsttypecar.Add(objtypecar);
                 }
@@ -51,7 +51,7 @@ namespace wcf_fullcarwash
 
                 objtypecar.typeCar = objtype.typecar;
                 objtypecar.price = Convert.ToDecimal(objtype.price);
-                objtypecar.carRegistration = objtype.carregistration;
+                
                 
 
                 model.TypeCars.Add(objtypecar);
@@ -79,7 +79,7 @@ namespace wcf_fullcarwash
                 objtyp.idCar = objtype.id;
                 objtyp.typeCar = objtype.typecar;
                 objtyp.price = Convert.ToDecimal(objtype.price);
-                objtyp.carRegistration = objtype.carregistration;
+                
 
                 model.SaveChanges();
                 value = true;
@@ -131,7 +131,7 @@ namespace wcf_fullcarwash
                 objtype.id = objtyp.idCar;
                 objtype.typecar= objtyp.typeCar;
                 objtype.price = Convert.ToDouble(objtyp.price);
-                objtype.carregistration = objtyp.carRegistration;
+                
                 
             }
             catch (Exception ex)

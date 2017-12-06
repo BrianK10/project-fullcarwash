@@ -15,6 +15,7 @@ namespace wcf_fullcarwash
     {
         public int idService { get; set; }
         public Nullable<int> idLocal { get; set; }
+        public string local { get; set; }
         public string nameService { get; set; }
         public string typeService { get; set; }
         public decimal price { get; set; }

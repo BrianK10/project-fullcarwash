@@ -28,6 +28,7 @@ namespace wcf_fullcarwash
         public decimal priceService { get; set; }
         public decimal priceTypeCar { get; set; }
         public decimal fullPayment { get; set; }
+        public string carRegistration { get; set; }
     
         public virtual Reservation Reservation { get; set; }
         public virtual Services Services { get; set; }

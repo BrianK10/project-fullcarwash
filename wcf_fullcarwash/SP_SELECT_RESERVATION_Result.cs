@@ -15,7 +15,10 @@ namespace wcf_fullcarwash
     {
         public int idReservation { get; set; }
         public int idEmployee { get; set; }
+        public string employee { get; set; }
         public int idCustomer { get; set; }
-        public Nullable<int> idLocal { get; set; }
+        public string customer { get; set; }
+        public int idLocal { get; set; }
+        public string local { get; set; }
     }
 }

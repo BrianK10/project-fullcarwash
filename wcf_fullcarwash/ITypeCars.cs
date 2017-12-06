@@ -59,14 +59,5 @@ namespace wcf_fullcarwash
             get { return _price; }
             set { _price = value; }
         }
-
-        private string _carregistration;
-
-        [DataMember]
-        public string carregistration
-        {
-            get { return _carregistration; }
-            set { _carregistration = value; }
-        }
     }
 }

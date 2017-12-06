@@ -32,6 +32,7 @@
           <Property Name="priceService" Type="money" Nullable="false" />
           <Property Name="priceTypeCar" Type="money" Nullable="false" />
           <Property Name="fullPayment" Type="money" Nullable="false" />
+          <Property Name="carRegistration" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Employees">
           <Key>
@@ -68,7 +69,7 @@
           <Key>
             <PropertyRef Name="idService" />
           </Key>
-          <Property Name="idService" Type="int" Nullable="false" />
+          <Property Name="idService" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idLocal" Type="int" />
           <Property Name="nameService" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="typeService" Type="varchar" MaxLength="50" Nullable="false" />
@@ -81,7 +82,6 @@
           <Property Name="idCar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="typeCar" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="price" Type="money" Nullable="false" />
-          <Property Name="carRegistration" Type="varchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_DetailReservation_Reservation">
           <End Role="Reservation" Type="Self.Reservation" Multiplicity="1" />
@@ -264,23 +264,6 @@
           <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Reservation" Relationship="Self.FK_Reservation_Customers" FromRole="Customers" ToRole="Reservation" />
         </EntityType>
-        <EntityType Name="DetailReservation">
-          <Key>
-            <PropertyRef Name="idDetail" />
-          </Key>
-          <Property Name="idDetail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idReservation" Type="Int32" Nullable="false" />
-          <Property Name="idService" Type="Int32" Nullable="false" />
-          <Property Name="idCar" Type="Int32" Nullable="false" />
-          <Property Name="priceService" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="priceTypeCar" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="fullPayment" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <NavigationProperty Name="Reservation" Relationship="Self.FK_DetailReservation_Reservation" FromRole="DetailReservation" ToRole="Reservation" />
-          <NavigationProperty Name="Services" Relationship="Self.FK_DetailReservation_Services" FromRole="DetailReservation" ToRole="Services" />
-          <NavigationProperty Name="TypeCars" Relationship="Self.FK_DetailReservation_TypeCars" FromRole="DetailReservation" ToRole="TypeCars" />
-          <NavigationProperty Name="Reservation1" Relationship="Self.FK_Reservation_DetailReservation" FromRole="DetailReservation" ToRole="Reservation" />
-          <NavigationProperty Name="Reservation2" Relationship="Self.FK_Reservation_DetailReservation1" FromRole="DetailReservation" ToRole="Reservation" />
-        </EntityType>
         <EntityType Name="Local">
           <Key>
             <PropertyRef Name="idLocal" />
@@ -301,11 +284,11 @@
           <Property Name="idCustomer" Type="Int32" Nullable="false" />
           <Property Name="idLocal" Type="Int32" />
           <NavigationProperty Name="Customers" Relationship="Self.FK_Reservation_Customers" FromRole="Reservation" ToRole="Customers" />
-          <NavigationProperty Name="DetailReservation" Relationship="Self.FK_DetailReservation_Reservation" FromRole="Reservation" ToRole="DetailReservation" />
-          <NavigationProperty Name="DetailReservation1" Relationship="Self.FK_Reservation_DetailReservation" FromRole="Reservation" ToRole="DetailReservation" />
-          <NavigationProperty Name="DetailReservation2" Relationship="Self.FK_Reservation_DetailReservation1" FromRole="Reservation" ToRole="DetailReservation" />
           <NavigationProperty Name="Local" Relationship="Self.FK_Reservation_Local" FromRole="Reservation" ToRole="Local" />
           <NavigationProperty Name="Employees" Relationship="fullcarwashModel.FK_Reservation_Employees" FromRole="Reservation" ToRole="Employees" />
+          <NavigationProperty Name="DetailReservation" Relationship="fullcarwashModel.FK_DetailReservation_Reservation" FromRole="Reservation" ToRole="DetailReservation" />
+          <NavigationProperty Name="DetailReservation1" Relationship="fullcarwashModel.FK_Reservation_DetailReservation" FromRole="Reservation" ToRole="DetailReservation" />
+          <NavigationProperty Name="DetailReservation2" Relationship="fullcarwashModel.FK_Reservation_DetailReservation1" FromRole="Reservation" ToRole="DetailReservation" />
         </EntityType>
         <EntityType Name="Services">
           <Key>
@@ -316,18 +299,8 @@
           <Property Name="nameService" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="typeService" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <NavigationProperty Name="DetailReservation" Relationship="Self.FK_DetailReservation_Services" FromRole="Services" ToRole="DetailReservation" />
           <NavigationProperty Name="Local" Relationship="Self.FK_Services_Local" FromRole="Services" ToRole="Local" />
-        </EntityType>
-        <EntityType Name="TypeCars">
-          <Key>
-            <PropertyRef Name="idCar" />
-          </Key>
-          <Property Name="idCar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="typeCar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="carRegistration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="DetailReservation" Relationship="Self.FK_DetailReservation_TypeCars" FromRole="TypeCars" ToRole="DetailReservation" />
+          <NavigationProperty Name="DetailReservation" Relationship="fullcarwashModel.FK_DetailReservation_Services" FromRole="Services" ToRole="DetailReservation" />
         </EntityType>
         <Association Name="FK_Reservation_Customers">
           <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
@@ -335,66 +308,6 @@
           <ReferentialConstraint>
             <Principal Role="Customers">
               <PropertyRef Name="idCustomer" />
-            </Principal>
-            <Dependent Role="Reservation">
-              <PropertyRef Name="idCustomer" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DetailReservation_Reservation">
-          <End Role="Reservation" Type="Self.Reservation" Multiplicity="1" />
-          <End Role="DetailReservation" Type="Self.DetailReservation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Reservation">
-              <PropertyRef Name="idReservation" />
-            </Principal>
-            <Dependent Role="DetailReservation">
-              <PropertyRef Name="idReservation" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DetailReservation_Services">
-          <End Role="Services" Type="Self.Services" Multiplicity="1" />
-          <End Role="DetailReservation" Type="Self.DetailReservation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Services">
-              <PropertyRef Name="idService" />
-            </Principal>
-            <Dependent Role="DetailReservation">
-              <PropertyRef Name="idService" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DetailReservation_TypeCars">
-          <End Role="TypeCars" Type="Self.TypeCars" Multiplicity="1" />
-          <End Role="DetailReservation" Type="Self.DetailReservation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypeCars">
-              <PropertyRef Name="idCar" />
-            </Principal>
-            <Dependent Role="DetailReservation">
-              <PropertyRef Name="idCar" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reservation_DetailReservation">
-          <End Role="DetailReservation" Type="Self.DetailReservation" Multiplicity="1" />
-          <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DetailReservation">
-              <PropertyRef Name="idDetail" />
-            </Principal>
-            <Dependent Role="Reservation">
-              <PropertyRef Name="idEmployee" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reservation_DetailReservation1">
-          <End Role="DetailReservation" Type="Self.DetailReservation" Multiplicity="1" />
-          <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DetailReservation">
-              <PropertyRef Name="idDetail" />
             </Principal>
             <Dependent Role="Reservation">
               <PropertyRef Name="idCustomer" />
@@ -427,33 +340,11 @@
         </Association>
         <EntityContainer Name="fullcarwashEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customers" EntityType="Self.Customers" />
-          <EntitySet Name="DetailReservation" EntityType="Self.DetailReservation" />
           <EntitySet Name="Local" EntityType="Self.Local" />
           <EntitySet Name="Reservation" EntityType="Self.Reservation" />
           <EntitySet Name="Services" EntityType="Self.Services" />
-          <EntitySet Name="TypeCars" EntityType="Self.TypeCars" />
           <AssociationSet Name="FK_Reservation_Customers" Association="Self.FK_Reservation_Customers">
             <End Role="Customers" EntitySet="Customers" />
-            <End Role="Reservation" EntitySet="Reservation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DetailReservation_Reservation" Association="Self.FK_DetailReservation_Reservation">
-            <End Role="Reservation" EntitySet="Reservation" />
-            <End Role="DetailReservation" EntitySet="DetailReservation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DetailReservation_Services" Association="Self.FK_DetailReservation_Services">
-            <End Role="Services" EntitySet="Services" />
-            <End Role="DetailReservation" EntitySet="DetailReservation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DetailReservation_TypeCars" Association="Self.FK_DetailReservation_TypeCars">
-            <End Role="TypeCars" EntitySet="TypeCars" />
-            <End Role="DetailReservation" EntitySet="DetailReservation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reservation_DetailReservation" Association="Self.FK_Reservation_DetailReservation">
-            <End Role="DetailReservation" EntitySet="DetailReservation" />
-            <End Role="Reservation" EntitySet="Reservation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reservation_DetailReservation1" Association="Self.FK_Reservation_DetailReservation1">
-            <End Role="DetailReservation" EntitySet="DetailReservation" />
             <End Role="Reservation" EntitySet="Reservation" />
           </AssociationSet>
           <AssociationSet Name="FK_Reservation_Local" Association="Self.FK_Reservation_Local">
@@ -466,16 +357,38 @@
           </AssociationSet>
           <FunctionImport Name="SP_SELECT_CUSTOMERS" ReturnType="Collection(fullcarwashModel.SP_SELECT_CUSTOMERS_Result)" />
           <FunctionImport Name="SP_SELECT_LOCALS" ReturnType="Collection(fullcarwashModel.SP_SELECT_LOCALS_Result)" />
-          <FunctionImport Name="SP_SELECT_DETAILRESERVATION" ReturnType="Collection(fullcarwashModel.SP_SELECT_DETAILRESERVATION_Result)" />
-          <FunctionImport Name="SP_SELECT_RESERVATION" ReturnType="Collection(fullcarwashModel.SP_SELECT_RESERVATION_Result)" />
-          <FunctionImport Name="SP_SELECT_SERVICES" ReturnType="Collection(fullcarwashModel.SP_SELECT_SERVICES_Result)" />
-          <FunctionImport Name="SP_SELECT_TYPECARS" ReturnType="Collection(fullcarwashModel.SP_SELECT_TYPECARS_Result)" />
           <EntitySet Name="Employees" EntityType="fullcarwashModel.Employees" />
           <AssociationSet Name="FK_Reservation_Employees" Association="fullcarwashModel.FK_Reservation_Employees">
             <End Role="Employees" EntitySet="Employees" />
             <End Role="Reservation" EntitySet="Reservation" />
           </AssociationSet>
           <FunctionImport Name="SP_SELECT_EMPLOYEES" ReturnType="Collection(fullcarwashModel.SP_SELECT_EMPLOYEES_Result)" />
+          <FunctionImport Name="SP_SELECT_SERVICES" ReturnType="Collection(fullcarwashModel.SP_SELECT_SERVICES_Result)" />
+          <FunctionImport Name="SP_SELECT_DETAILRESERVATION" ReturnType="Collection(fullcarwashModel.SP_SELECT_DETAILRESERVATION_Result)" />
+          <FunctionImport Name="SP_SELECT_RESERVATION" ReturnType="Collection(fullcarwashModel.SP_SELECT_RESERVATION_Result)" />
+          <EntitySet Name="TypeCars" EntityType="fullcarwashModel.TypeCars" />
+          <EntitySet Name="DetailReservation" EntityType="fullcarwashModel.DetailReservation" />
+          <AssociationSet Name="FK_DetailReservation_Reservation" Association="fullcarwashModel.FK_DetailReservation_Reservation">
+            <End Role="Reservation" EntitySet="Reservation" />
+            <End Role="DetailReservation" EntitySet="DetailReservation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetailReservation_Services" Association="fullcarwashModel.FK_DetailReservation_Services">
+            <End Role="Services" EntitySet="Services" />
+            <End Role="DetailReservation" EntitySet="DetailReservation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetailReservation_TypeCars" Association="fullcarwashModel.FK_DetailReservation_TypeCars">
+            <End Role="TypeCars" EntitySet="TypeCars" />
+            <End Role="DetailReservation" EntitySet="DetailReservation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservation_DetailReservation" Association="fullcarwashModel.FK_Reservation_DetailReservation">
+            <End Role="DetailReservation" EntitySet="DetailReservation" />
+            <End Role="Reservation" EntitySet="Reservation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservation_DetailReservation1" Association="fullcarwashModel.FK_Reservation_DetailReservation1">
+            <End Role="DetailReservation" EntitySet="DetailReservation" />
+            <End Role="Reservation" EntitySet="Reservation" />
+          </AssociationSet>
+          <FunctionImport Name="SP_SELECT_TYPECARS" ReturnType="Collection(fullcarwashModel.SP_SELECT_TYPECARS_Result)" />
         </EntityContainer>
         <ComplexType Name="SP_SELECT_CUSTOMERS_Result">
           <Property Type="Int32" Name="idCustomer" Nullable="false" />
@@ -495,34 +408,6 @@
           <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="schedules" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="SP_SELECT_DETAILRESERVATION_Result">
-          <Property Type="Int32" Name="idDetail" Nullable="false" />
-          <Property Type="Int32" Name="idReservation" Nullable="false" />
-          <Property Type="Int32" Name="idService" Nullable="false" />
-          <Property Type="Int32" Name="idCar" Nullable="false" />
-          <Property Type="Decimal" Name="priceService" Nullable="false" Precision="19" />
-          <Property Type="Decimal" Name="priceTypeCar" Nullable="false" Precision="19" />
-          <Property Type="Decimal" Name="fullPayment" Nullable="false" Precision="19" />
-        </ComplexType>
-        <ComplexType Name="SP_SELECT_RESERVATION_Result">
-          <Property Type="Int32" Name="idReservation" Nullable="false" />
-          <Property Type="Int32" Name="idEmployee" Nullable="false" />
-          <Property Type="Int32" Name="idCustomer" Nullable="false" />
-          <Property Type="Int32" Name="idLocal" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="SP_SELECT_SERVICES_Result">
-          <Property Type="Int32" Name="idService" Nullable="false" />
-          <Property Type="Int32" Name="idLocal" Nullable="true" />
-          <Property Type="String" Name="nameService" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="typeService" Nullable="false" MaxLength="50" />
-          <Property Type="Decimal" Name="price" Nullable="false" Precision="19" />
-        </ComplexType>
-        <ComplexType Name="SP_SELECT_TYPECARS_Result">
-          <Property Type="Int32" Name="idCar" Nullable="false" />
-          <Property Type="String" Name="typeCar" Nullable="false" MaxLength="50" />
-          <Property Type="Decimal" Name="price" Nullable="false" Precision="19" />
-          <Property Type="String" Name="carRegistration" Nullable="true" MaxLength="50" />
         </ComplexType>
         <EntityType Name="Employees">
           <Key>
@@ -560,6 +445,128 @@
           <Property Type="String" Name="number_dni" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="password" Nullable="true" MaxLength="50" />
         </ComplexType>
+        <ComplexType Name="SP_SELECT_SERVICES_Result">
+          <Property Type="Int32" Name="idService" Nullable="false" />
+          <Property Type="Int32" Name="idLocal" Nullable="true" />
+          <Property Type="String" Name="local" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="nameService" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="typeService" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="price" Nullable="false" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="SP_SELECT_DETAILRESERVATION_Result">
+          <Property Type="Int32" Name="idDetail" Nullable="false" />
+          <Property Type="Int32" Name="idReservation" Nullable="false" />
+          <Property Type="Int32" Name="idService" Nullable="false" />
+          <Property Type="String" Name="nameService" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="typeService" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="idCar" Nullable="false" />
+          <Property Type="String" Name="typeCar" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="priceService" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="priceTypeCar" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="fullPayment" Nullable="false" Precision="19" />
+          <Property Type="String" Name="carRegistration" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SP_SELECT_RESERVATION_Result">
+          <Property Type="Int32" Name="idReservation" Nullable="false" />
+          <Property Type="Int32" Name="idEmployee" Nullable="false" />
+          <Property Type="String" Name="employee" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="idCustomer" Nullable="false" />
+          <Property Type="String" Name="customer" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="idLocal" Nullable="false" />
+          <Property Type="String" Name="local" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="TypeCars">
+          <Key>
+            <PropertyRef Name="idCar" />
+          </Key>
+          <Property Name="idCar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typeCar" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <NavigationProperty Name="DetailReservation" Relationship="fullcarwashModel.FK_DetailReservation_TypeCars" FromRole="TypeCars" ToRole="DetailReservation" />
+        </EntityType>
+        <EntityType Name="DetailReservation">
+          <Key>
+            <PropertyRef Name="idDetail" />
+          </Key>
+          <Property Name="idDetail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idReservation" Type="Int32" Nullable="false" />
+          <Property Name="idService" Type="Int32" Nullable="false" />
+          <Property Name="idCar" Type="Int32" Nullable="false" />
+          <Property Name="priceService" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="priceTypeCar" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="fullPayment" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="carRegistration" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reservation" Relationship="fullcarwashModel.FK_DetailReservation_Reservation" FromRole="DetailReservation" ToRole="Reservation" />
+          <NavigationProperty Name="Services" Relationship="fullcarwashModel.FK_DetailReservation_Services" FromRole="DetailReservation" ToRole="Services" />
+          <NavigationProperty Name="TypeCars" Relationship="fullcarwashModel.FK_DetailReservation_TypeCars" FromRole="DetailReservation" ToRole="TypeCars" />
+          <NavigationProperty Name="Reservation1" Relationship="fullcarwashModel.FK_Reservation_DetailReservation" FromRole="DetailReservation" ToRole="Reservation" />
+          <NavigationProperty Name="Reservation2" Relationship="fullcarwashModel.FK_Reservation_DetailReservation1" FromRole="DetailReservation" ToRole="Reservation" />
+        </EntityType>
+        <Association Name="FK_DetailReservation_Reservation">
+          <End Type="fullcarwashModel.Reservation" Role="Reservation" Multiplicity="1" />
+          <End Type="fullcarwashModel.DetailReservation" Role="DetailReservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reservation">
+              <PropertyRef Name="idReservation" />
+            </Principal>
+            <Dependent Role="DetailReservation">
+              <PropertyRef Name="idReservation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetailReservation_Services">
+          <End Type="fullcarwashModel.Services" Role="Services" Multiplicity="1" />
+          <End Type="fullcarwashModel.DetailReservation" Role="DetailReservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="idService" />
+            </Principal>
+            <Dependent Role="DetailReservation">
+              <PropertyRef Name="idService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetailReservation_TypeCars">
+          <End Type="fullcarwashModel.TypeCars" Role="TypeCars" Multiplicity="1" />
+          <End Type="fullcarwashModel.DetailReservation" Role="DetailReservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeCars">
+              <PropertyRef Name="idCar" />
+            </Principal>
+            <Dependent Role="DetailReservation">
+              <PropertyRef Name="idCar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservation_DetailReservation">
+          <End Type="fullcarwashModel.DetailReservation" Role="DetailReservation" Multiplicity="1" />
+          <End Type="fullcarwashModel.Reservation" Role="Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DetailReservation">
+              <PropertyRef Name="idDetail" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="idEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservation_DetailReservation1">
+          <End Type="fullcarwashModel.DetailReservation" Role="DetailReservation" Multiplicity="1" />
+          <End Type="fullcarwashModel.Reservation" Role="Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DetailReservation">
+              <PropertyRef Name="idDetail" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="idCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="SP_SELECT_TYPECARS_Result">
+          <Property Type="Int32" Name="idCar" Nullable="false" />
+          <Property Type="String" Name="typeCar" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="price" Nullable="false" Precision="19" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -580,19 +587,6 @@
                 <ScalarProperty Name="number_dni" ColumnName="number_dni" />
                 <ScalarProperty Name="address" ColumnName="address" />
                 <ScalarProperty Name="password" ColumnName="password" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DetailReservation">
-            <EntityTypeMapping TypeName="fullcarwashModel.DetailReservation">
-              <MappingFragment StoreEntitySet="DetailReservation">
-                <ScalarProperty Name="idDetail" ColumnName="idDetail" />
-                <ScalarProperty Name="idReservation" ColumnName="idReservation" />
-                <ScalarProperty Name="idService" ColumnName="idService" />
-                <ScalarProperty Name="idCar" ColumnName="idCar" />
-                <ScalarProperty Name="priceService" ColumnName="priceService" />
-                <ScalarProperty Name="priceTypeCar" ColumnName="priceTypeCar" />
-                <ScalarProperty Name="fullPayment" ColumnName="fullPayment" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -627,16 +621,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TypeCars">
-            <EntityTypeMapping TypeName="fullcarwashModel.TypeCars">
-              <MappingFragment StoreEntitySet="TypeCars">
-                <ScalarProperty Name="idCar" ColumnName="idCar" />
-                <ScalarProperty Name="typeCar" ColumnName="typeCar" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="carRegistration" ColumnName="carRegistration" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="SP_SELECT_CUSTOMERS" FunctionName="fullcarwashModel.Store.SP_SELECT_CUSTOMERS">
             <ResultMapping>
               <ComplexTypeMapping TypeName="fullcarwashModel.SP_SELECT_CUSTOMERS_Result">
@@ -661,50 +645,6 @@
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="address" ColumnName="address" />
                 <ScalarProperty Name="schedules" ColumnName="schedules" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_SELECT_DETAILRESERVATION" FunctionName="fullcarwashModel.Store.SP_SELECT_DETAILRESERVATION">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="fullcarwashModel.SP_SELECT_DETAILRESERVATION_Result">
-                <ScalarProperty Name="idDetail" ColumnName="idDetail" />
-                <ScalarProperty Name="idReservation" ColumnName="idReservation" />
-                <ScalarProperty Name="idService" ColumnName="idService" />
-                <ScalarProperty Name="idCar" ColumnName="idCar" />
-                <ScalarProperty Name="priceService" ColumnName="priceService" />
-                <ScalarProperty Name="priceTypeCar" ColumnName="priceTypeCar" />
-                <ScalarProperty Name="fullPayment" ColumnName="fullPayment" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_SELECT_RESERVATION" FunctionName="fullcarwashModel.Store.SP_SELECT_RESERVATION">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="fullcarwashModel.SP_SELECT_RESERVATION_Result">
-                <ScalarProperty Name="idReservation" ColumnName="idReservation" />
-                <ScalarProperty Name="idEmployee" ColumnName="idEmployee" />
-                <ScalarProperty Name="idCustomer" ColumnName="idCustomer" />
-                <ScalarProperty Name="idLocal" ColumnName="idLocal" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_SELECT_SERVICES" FunctionName="fullcarwashModel.Store.SP_SELECT_SERVICES">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="fullcarwashModel.SP_SELECT_SERVICES_Result">
-                <ScalarProperty Name="idService" ColumnName="idService" />
-                <ScalarProperty Name="idLocal" ColumnName="idLocal" />
-                <ScalarProperty Name="nameService" ColumnName="nameService" />
-                <ScalarProperty Name="typeService" ColumnName="typeService" />
-                <ScalarProperty Name="price" ColumnName="price" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_SELECT_TYPECARS" FunctionName="fullcarwashModel.Store.SP_SELECT_TYPECARS">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="fullcarwashModel.SP_SELECT_TYPECARS_Result">
-                <ScalarProperty Name="idCar" ColumnName="idCar" />
-                <ScalarProperty Name="typeCar" ColumnName="typeCar" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="carRegistration" ColumnName="carRegistration" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -733,6 +673,80 @@
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="number_dni" ColumnName="number_dni" />
                 <ScalarProperty Name="password" ColumnName="password" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SELECT_SERVICES" FunctionName="fullcarwashModel.Store.SP_SELECT_SERVICES">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="fullcarwashModel.SP_SELECT_SERVICES_Result">
+                <ScalarProperty Name="idService" ColumnName="idService" />
+                <ScalarProperty Name="idLocal" ColumnName="idLocal" />
+                <ScalarProperty Name="local" ColumnName="local" />
+                <ScalarProperty Name="nameService" ColumnName="nameService" />
+                <ScalarProperty Name="typeService" ColumnName="typeService" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SELECT_DETAILRESERVATION" FunctionName="fullcarwashModel.Store.SP_SELECT_DETAILRESERVATION">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="fullcarwashModel.SP_SELECT_DETAILRESERVATION_Result">
+                <ScalarProperty Name="idDetail" ColumnName="idDetail" />
+                <ScalarProperty Name="idReservation" ColumnName="idReservation" />
+                <ScalarProperty Name="idService" ColumnName="idService" />
+                <ScalarProperty Name="nameService" ColumnName="nameService" />
+                <ScalarProperty Name="typeService" ColumnName="typeService" />
+                <ScalarProperty Name="idCar" ColumnName="idCar" />
+                <ScalarProperty Name="typeCar" ColumnName="typeCar" />
+                <ScalarProperty Name="priceService" ColumnName="priceService" />
+                <ScalarProperty Name="priceTypeCar" ColumnName="priceTypeCar" />
+                <ScalarProperty Name="fullPayment" ColumnName="fullPayment" />
+                <ScalarProperty Name="carRegistration" ColumnName="carRegistration" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SELECT_RESERVATION" FunctionName="fullcarwashModel.Store.SP_SELECT_RESERVATION">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="fullcarwashModel.SP_SELECT_RESERVATION_Result">
+                <ScalarProperty Name="idReservation" ColumnName="idReservation" />
+                <ScalarProperty Name="idEmployee" ColumnName="idEmployee" />
+                <ScalarProperty Name="employee" ColumnName="employee" />
+                <ScalarProperty Name="idCustomer" ColumnName="idCustomer" />
+                <ScalarProperty Name="customer" ColumnName="customer" />
+                <ScalarProperty Name="idLocal" ColumnName="idLocal" />
+                <ScalarProperty Name="local" ColumnName="local" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="TypeCars">
+            <EntityTypeMapping TypeName="fullcarwashModel.TypeCars">
+              <MappingFragment StoreEntitySet="TypeCars">
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="typeCar" ColumnName="typeCar" />
+                <ScalarProperty Name="idCar" ColumnName="idCar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetailReservation">
+            <EntityTypeMapping TypeName="fullcarwashModel.DetailReservation">
+              <MappingFragment StoreEntitySet="DetailReservation">
+                <ScalarProperty Name="carRegistration" ColumnName="carRegistration" />
+                <ScalarProperty Name="fullPayment" ColumnName="fullPayment" />
+                <ScalarProperty Name="priceTypeCar" ColumnName="priceTypeCar" />
+                <ScalarProperty Name="priceService" ColumnName="priceService" />
+                <ScalarProperty Name="idCar" ColumnName="idCar" />
+                <ScalarProperty Name="idService" ColumnName="idService" />
+                <ScalarProperty Name="idReservation" ColumnName="idReservation" />
+                <ScalarProperty Name="idDetail" ColumnName="idDetail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_SELECT_TYPECARS" FunctionName="fullcarwashModel.Store.SP_SELECT_TYPECARS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="fullcarwashModel.SP_SELECT_TYPECARS_Result">
+                <ScalarProperty Name="idCar" ColumnName="idCar" />
+                <ScalarProperty Name="typeCar" ColumnName="typeCar" />
+                <ScalarProperty Name="price" ColumnName="price" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

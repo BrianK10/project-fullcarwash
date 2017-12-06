@@ -24,7 +24,10 @@ namespace wcf_fullcarwash
         Boolean deletecustomer(int id);
 
         [OperationContract]
-        customers getcustomerById(int id);        
+        customers getcustomerById(int id);
+
+        [OperationContract]
+        customers getcustomerLogin(string email, string password);
     }
 
     [DataContract]

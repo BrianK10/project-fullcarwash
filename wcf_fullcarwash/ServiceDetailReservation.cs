@@ -26,8 +26,13 @@ namespace wcf_fullcarwash
 
                     objdetail.id = result.idReservation;
                     objdetail.idreservation = result.idReservation;
+                    
                     objdetail.idservice = result.idService;
+                    objdetail.nameService = result.nameService;
+
                     objdetail.idcar = result.idCar;
+                    objdetail.typecar = result.typeCar;
+
                     objdetail.priceservice = Convert.ToDouble(result.priceService);
                     objdetail.pricetypecar = Convert.ToDouble(result.priceTypeCar);
                     objdetail.fullpayment = Convert.ToDouble(result.fullPayment);

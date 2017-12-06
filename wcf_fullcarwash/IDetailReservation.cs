@@ -57,6 +57,14 @@ namespace wcf_fullcarwash
           set { _idService = value; }
         }
 
+        private string _nameService;
+
+        [DataMember]
+        public string nameService
+        {
+            get { return _nameService; }
+            set { _nameService = value; }
+        }
 
         private int _idCar;
         [DataMember]
@@ -66,6 +74,14 @@ namespace wcf_fullcarwash
             set { _idCar = value; }
         }
 
+        private string _typecar;
+
+        [DataMember]
+        public string typecar
+        {
+            get { return _typecar; }
+            set { _typecar = value; }
+        }
 
         private double _priceService;
         [DataMember]

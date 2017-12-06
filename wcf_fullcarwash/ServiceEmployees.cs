@@ -155,6 +155,36 @@ namespace wcf_fullcarwash
             }
             return objemployee;
         }
+
+        public employees getemployeeLogin(string email, string password)
+        {
+            
+            fullcarwashEntities model = new fullcarwashEntities();
+            employees objemployee = new employees();
+
+            try
+            {
+                Employees objemp = (from obje in model.Employees
+                                    where obje.email.ToLower().Equals(email.ToLower()) && obje.password.Equals(password)
+                                    select obje).FirstOrDefault();
+
+                objemployee.id = objemp.idEmployee;
+                objemployee.firstname = objemp.firstName;
+                objemployee.lastname = objemp.lastName;
+                objemployee.fullname = objemp.fullName;
+                objemployee.gender = objemp.gender;
+                objemployee.email = objemp.email;
+                objemployee.numberdni = objemp.number_dni;
+                objemployee.password = objemp.password;
+
+             
+            }
+            catch (Exception ex)
+            {                
+                ex.Message.ToString();
+            }
+            return objemployee;
+        }
     }
 }
 

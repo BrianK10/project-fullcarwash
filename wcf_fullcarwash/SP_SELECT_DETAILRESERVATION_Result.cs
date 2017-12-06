@@ -16,9 +16,13 @@ namespace wcf_fullcarwash
         public int idDetail { get; set; }
         public int idReservation { get; set; }
         public int idService { get; set; }
+        public string nameService { get; set; }
+        public string typeService { get; set; }
         public int idCar { get; set; }
+        public string typeCar { get; set; }
         public decimal priceService { get; set; }
         public decimal priceTypeCar { get; set; }
         public decimal fullPayment { get; set; }
+        public string carRegistration { get; set; }
     }
 }

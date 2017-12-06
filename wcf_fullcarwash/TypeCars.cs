@@ -23,7 +23,6 @@ namespace wcf_fullcarwash
         public int idCar { get; set; }
         public string typeCar { get; set; }
         public decimal price { get; set; }
-        public string carRegistration { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetailReservation> DetailReservation { get; set; }

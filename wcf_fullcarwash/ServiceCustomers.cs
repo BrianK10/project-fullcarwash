@@ -168,5 +168,37 @@ namespace wcf_fullcarwash
             }
             return objcust;
         }
+        public customers getcustomerLogin(string email, string password)
+        {
+            
+            fullcarwashEntities model = new fullcarwashEntities();
+            customers objcust = new customers();
+
+            try
+            {
+                Customers objcustomer = (from objc in model.Customers
+                                         where objc.email.ToLower().Equals(email.ToLower()) && objc.password .Equals(password)                                         
+                                         select objc).FirstOrDefault();
+
+                objcust.id = objcustomer.idCustomer;
+                objcust.firstname = objcustomer.firstName;
+                objcust.lastname = objcustomer.lastName;
+                objcust.fullname = objcustomer.fullName;
+                objcust.gender = objcustomer.gender;
+                objcust.birthdate = objcustomer.birthdate;
+                objcust.phone = objcustomer.phone;
+                objcust.email = objcustomer.email;
+                objcust.numberdni = objcustomer.number_dni;
+                objcust.address = objcustomer.address;
+                objcust.password = objcustomer.password;
+                
+                
+            }
+            catch (Exception ex)
+            {                
+                ex.Message.ToString();
+            }
+            return objcust;
+        }
     }
 }

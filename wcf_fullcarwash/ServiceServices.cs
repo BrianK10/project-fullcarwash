@@ -11,22 +11,23 @@ namespace wcf_fullcarwash
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "ServiceLocal" en el código y en el archivo de configuración a la vez.
     public class ServiceServices : IServiceServices
     {
-        bool value;       
+        bool value;
 
-        public List<services> getservices()
+        public List<service> getservices()
         {
             fullcarwashEntities model = new fullcarwashEntities();
-            List<services> objlstservice = new List<services>();
-
+            List<service> objlstservice = new List<service>();            
+            
             try
             {
                 var query = model.SP_SELECT_SERVICES();
                 foreach (var result in query)
                 {
-                    services objservice = new services();
+                    service objservice = new service();
 
-                    objservice.id = Convert.ToInt16(result.idLocal);
-                    objservice.idLocal = result.idService;
+                    objservice.id = Convert.ToInt16(result.idService);
+                    objservice.idLocal = Convert.ToInt16(result.idLocal);
+                    objservice.nameLocal = result.local;
                     objservice.name = result.nameService;
                     objservice.typeservice = result.typeService;
                     objservice.price = Convert.ToDouble(result.price);
@@ -42,7 +43,7 @@ namespace wcf_fullcarwash
             return objlstservice;
         }
 
-        public bool insertservice(services objserv)
+        public bool insertservice(service objserv)
         {
             fullcarwashEntities model = new fullcarwashEntities();
 
@@ -68,7 +69,7 @@ namespace wcf_fullcarwash
             return value;
         }
 
-        public bool updateservice(services objservice)
+        public bool updateservice(service objservice)
         {
             fullcarwashEntities model = new fullcarwashEntities();
             try
@@ -118,10 +119,10 @@ namespace wcf_fullcarwash
             return value;
         }
 
-        public services getserviceById(int id)
+        public service getserviceById(int id)
         {
             fullcarwashEntities model = new fullcarwashEntities();
-            services objservice = new services();
+            service objservice = new service();
 
             try
             {
@@ -129,8 +130,8 @@ namespace wcf_fullcarwash
                                     where objs.idService == id
                                     select objs).FirstOrDefault();
 
-                objservice.id = Convert.ToInt16(objserv.idLocal);
-                objservice.idLocal = Convert.ToInt16(objserv.idLocal);
+                objservice.id = Convert.ToInt16(objserv.idService);
+                objservice.idLocal = Convert.ToInt16(objserv.idLocal);                
                 objservice.name = objserv.nameService;
                 objservice.typeservice= objserv.typeService;
                 objservice.price = Convert.ToDouble(objserv.price);

@@ -26,9 +26,15 @@ namespace wcf_fullcarwash
                     reservation objreservation = new reservation();
 
                     objreservation.id = result.idReservation;
+                    
                     objreservation.idEmployee = result.idEmployee;
+                    objreservation.nameEmployee = result.employee;
+                    
                     objreservation.idCustomer = result.idCustomer;
+                    objreservation.nameCustomer = result.customer;
+                    
                     objreservation.idLocal = Convert.ToInt16(result.idLocal);
+                    objreservation.nameLocal = result.local;
 
                     objlstreservation.Add(objreservation);
                 }

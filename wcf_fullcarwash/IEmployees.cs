@@ -25,6 +25,9 @@ namespace wcf_fullcarwash
 
         [OperationContract]
         employees getemployeeById(int id);
+
+        [OperationContract]
+        employees getemployeeLogin(string email, string password);
     }
 
     [DataContract]

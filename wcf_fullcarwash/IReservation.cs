@@ -49,6 +49,14 @@ namespace wcf_fullcarwash
             set { _idEmployee = value; }
         }
 
+        private string _nameEmployee;
+        [DataMember]
+        public string nameEmployee
+        {
+            get { return _nameEmployee; }
+            set { _nameEmployee = value; }
+        }
+
         private int _idCustomer;
         [DataMember]
         public int idCustomer
@@ -57,6 +65,13 @@ namespace wcf_fullcarwash
           set { _idCustomer = value; }
         }
 
+        private string _nameCustomer;
+        [DataMember]
+        public string nameCustomer
+        {
+            get { return _nameCustomer; }
+            set { _nameCustomer = value; }
+        }
 
         private int _idLocal;
         [DataMember]
@@ -65,7 +80,14 @@ namespace wcf_fullcarwash
             get { return _idLocal; }
             set { _idLocal = value; }
         }
-        
+
+        private string _nameLocal;
+        [DataMember]
+        public string nameLocal
+        {
+            get { return _nameLocal; }
+            set { _nameLocal = value; }
+        }
        
     }
 }
