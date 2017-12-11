@@ -13,17 +13,17 @@ namespace wcf_fullcarwash
     {
         bool value;
 
-        public List<reservation> getreservation()
+        public List<reservations> getreservation()
         {
             fullcarwashEntities model = new fullcarwashEntities();
-            List<reservation> objlstreservation = new List<reservation>();
+            List<reservations> objlstreservation = new List<reservations>();
 
             try
             {
                 var query = model.SP_SELECT_RESERVATION();
                 foreach (var result in query)
                 {
-                    reservation objreservation = new reservation();
+                    reservations objreservation = new reservations();
 
                     objreservation.id = result.idReservation;
                     
@@ -47,7 +47,7 @@ namespace wcf_fullcarwash
             return objlstreservation;
         }
 
-        public bool insertreservation(reservation objreserv)
+        public bool insertreservation(reservations objreserv)
         {
             fullcarwashEntities model = new fullcarwashEntities();
 
@@ -74,7 +74,7 @@ namespace wcf_fullcarwash
             return value;
         }
 
-        public bool updatereservation(reservation objreserv)
+        public bool updatereservation(reservations objreserv)
         {
             fullcarwashEntities model = new fullcarwashEntities();
             try
@@ -124,10 +124,10 @@ namespace wcf_fullcarwash
             return value;
         }
 
-        public reservation getreservationById(int id)
+        public reservations getreservationById(int id)
         {
             fullcarwashEntities model = new fullcarwashEntities();
-            reservation objreserv = new reservation();
+            reservations objreserv = new reservations();
 
             try
             {

@@ -29,11 +29,11 @@ namespace wcf_fullcarwash
     
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<Local> Local { get; set; }
-        public virtual DbSet<Reservation> Reservation { get; set; }
         public virtual DbSet<Services> Services { get; set; }
         public virtual DbSet<Employees> Employees { get; set; }
         public virtual DbSet<TypeCars> TypeCars { get; set; }
         public virtual DbSet<DetailReservation> DetailReservation { get; set; }
+        public virtual DbSet<Reservation> Reservation { get; set; }
     
         public virtual ObjectResult<SP_SELECT_CUSTOMERS_Result> SP_SELECT_CUSTOMERS()
         {

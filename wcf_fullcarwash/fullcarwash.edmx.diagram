@@ -7,21 +7,19 @@
       <Diagram DiagramId="b5089038d9e84c2b89ab9edc514d3b28" Name="Diagram1">
         <EntityTypeShape EntityType="fullcarwashModel.Customers" Width="1.5" PointX="0.5" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="fullcarwashModel.Local" Width="1.5" PointX="0.5" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="fullcarwashModel.Reservation" Width="1.5" PointX="3.125" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="fullcarwashModel.Services" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
-        <AssociationConnector Association="fullcarwashModel.FK_Reservation_Customers" ManuallyRouted="false" />
-        <AssociationConnector Association="fullcarwashModel.FK_Reservation_Local" ManuallyRouted="false" />
         <AssociationConnector Association="fullcarwashModel.FK_Services_Local" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="fullcarwashModel.Employees" Width="1.5" PointX="5.375" PointY="1" />
-        <AssociationConnector Association="fullcarwashModel.FK_Reservation_Employees" />
+        <EntityTypeShape EntityType="fullcarwashModel.Employees" Width="1.5" PointX="3.75" PointY="1.125" />
         <EntityTypeShape EntityType="fullcarwashModel.TypeCars" Width="1.5" PointX="0.75" PointY="0.875" />
-        <EntityTypeShape EntityType="fullcarwashModel.DetailReservation" Width="1.5" PointX="7.25" PointY="3.625" />
+        <EntityTypeShape EntityType="fullcarwashModel.DetailReservation" Width="1.5" PointX="8.25" PointY="2" />
+        <EntityTypeShape EntityType="fullcarwashModel.Reservation" Width="1.5" PointX="5.625" PointY="4.375" />
+        <AssociationConnector Association="fullcarwashModel.FK_Reservation_Customers" />
         <AssociationConnector Association="fullcarwashModel.FK_DetailReservation_Reservation" />
         <AssociationConnector Association="fullcarwashModel.FK_DetailReservation_Services" />
         <AssociationConnector Association="fullcarwashModel.FK_DetailReservation_TypeCars" />
-        <AssociationConnector Association="fullcarwashModel.FK_Reservation_DetailReservation" />
-        <AssociationConnector Association="fullcarwashModel.FK_Reservation_DetailReservation1" />
-      </Diagram>
+        <AssociationConnector Association="fullcarwashModel.FK_Reservation_Employees" />
+        <AssociationConnector Association="fullcarwashModel.FK_Reservation_Local" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

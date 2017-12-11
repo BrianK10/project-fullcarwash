@@ -12,25 +12,25 @@ namespace wcf_fullcarwash
     public interface IServiceReservation
     {
         [OperationContract]
-        List<reservation> getreservation();
+        List<reservations> getreservation();
         
         [OperationContract]
-        bool insertreservation(reservation objreserv);
+        bool insertreservation(reservations objreserv);
 
         [OperationContract]
-        bool updatereservation(reservation objreserv);
+        bool updatereservation(reservations objreserv);
 
         [OperationContract]
         bool deletereservation(int id);
 
         [OperationContract]
-        reservation getreservationById(int id);
+        reservations getreservationById(int id);
     }
 
     [DataContract]
     [Serializable]
 
-    public class reservation
+    public class reservations
     {
         private int _id;
 

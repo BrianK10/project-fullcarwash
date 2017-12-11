@@ -14,13 +14,6 @@ namespace wcf_fullcarwash
     
     public partial class DetailReservation
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DetailReservation()
-        {
-            this.Reservation1 = new HashSet<Reservation>();
-            this.Reservation2 = new HashSet<Reservation>();
-        }
-    
         public int idDetail { get; set; }
         public int idReservation { get; set; }
         public int idService { get; set; }
@@ -33,9 +26,5 @@ namespace wcf_fullcarwash
         public virtual Reservation Reservation { get; set; }
         public virtual Services Services { get; set; }
         public virtual TypeCars TypeCars { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reservation> Reservation1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reservation> Reservation2 { get; set; }
     }
 }
