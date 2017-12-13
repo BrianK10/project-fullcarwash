@@ -27,9 +27,9 @@ namespace wcf_fullcarwash
 
                     objservice.id = Convert.ToInt16(result.idService);
                     objservice.idLocal = Convert.ToInt16(result.idLocal);
-                    objservice.nameLocal = result.local;
-                    objservice.name = result.nameService;
-                    objservice.typeservice = result.typeService;
+                    objservice.nameService = result.local;
+                    //objservice.name = result.nameService;
+                    objservice.typeService = result.typeService;
                     objservice.price = Convert.ToDouble(result.price);
 
                     objlstservice.Add(objservice);
@@ -52,8 +52,8 @@ namespace wcf_fullcarwash
                 Services objservice = new Services();
 
                 objservice.idLocal = objserv.idLocal;
-                objservice.nameService = objserv.name;
-                objservice.typeService = objserv.typeservice;
+                objservice.nameService = objserv.nameService;
+                objservice.typeService = objserv.typeService;
                 objservice.price = Convert.ToDecimal(objserv.price);
 
                 model.Services.Add(objservice);
@@ -79,8 +79,8 @@ namespace wcf_fullcarwash
                                 select objs).FirstOrDefault();
 
                 objserv.idLocal = objservice.idLocal;
-                objserv.nameService = objservice.name;
-                objserv.typeService = objservice.typeservice;
+                objserv.nameService = objservice.nameService;
+                objserv.typeService = objservice.typeService;
                 objserv.price = Convert.ToDecimal(objservice.price);
 
                 model.SaveChanges();
@@ -132,8 +132,8 @@ namespace wcf_fullcarwash
 
                 objservice.id = Convert.ToInt16(objserv.idService);
                 objservice.idLocal = Convert.ToInt16(objserv.idLocal);                
-                objservice.name = objserv.nameService;
-                objservice.typeservice= objserv.typeService;
+                objservice.nameService = objserv.nameService;
+                objservice.typeService= objserv.typeService;
                 objservice.price = Convert.ToDouble(objserv.price);
             }
             catch (Exception ex)

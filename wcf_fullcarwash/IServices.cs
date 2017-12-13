@@ -50,31 +50,31 @@ namespace wcf_fullcarwash
             set { _idLocal = value; }
         }
 
-        private string _nameLocal;
+        private string _nameService;
 
         [DataMember]
-        public string nameLocal
+        public string nameService
         {
-            get { return _nameLocal; }
-            set { _nameLocal = value; }
+            get { return _nameService; }
+            set { _nameService = value; }
         }
 
-
-        private string _name;
+        /*private string _name;
 
         [DataMember]
         public string name
         {
             get { return _name; }
             set { _name = value; }
-        }
-        private string _typeservice;
+        }*/
+
+        private string _typeService;
 
         [DataMember]
-        public string typeservice
+        public string typeService
         {
-            get { return _typeservice; }
-            set { _typeservice = value; }
+            get { return _typeService; }
+            set { _typeService = value; }
         }
 
         private double _price;

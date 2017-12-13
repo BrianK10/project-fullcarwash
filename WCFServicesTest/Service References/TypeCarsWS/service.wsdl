@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceTypeCars" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceTypeCars_gettypecars_InputMessage">
+    <wsdl:part name="parameters" element="tns:gettypecars" />
+  </wsdl:message>
+  <wsdl:message name="IServiceTypeCars_gettypecars_OutputMessage">
+    <wsdl:part name="parameters" element="tns:gettypecarsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceTypeCars_inserttypecar_InputMessage">
+    <wsdl:part name="parameters" element="tns:inserttypecar" />
+  </wsdl:message>
+  <wsdl:message name="IServiceTypeCars_inserttypecar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:inserttypecarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceTypeCars_updatetypecar_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatetypecar" />
+  </wsdl:message>
+  <wsdl:message name="IServiceTypeCars_updatetypecar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatetypecarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceTypeCars_deletetypecar_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletetypecar" />
+  </wsdl:message>
+  <wsdl:message name="IServiceTypeCars_deletetypecar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletetypecarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceTypeCars_gettypecarById_InputMessage">
+    <wsdl:part name="parameters" element="tns:gettypecarById" />
+  </wsdl:message>
+  <wsdl:message name="IServiceTypeCars_gettypecarById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:gettypecarByIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceTypeCars">
+    <wsdl:operation name="gettypecars">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceTypeCars/gettypecars" message="tns:IServiceTypeCars_gettypecars_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceTypeCars/gettypecarsResponse" message="tns:IServiceTypeCars_gettypecars_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="inserttypecar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceTypeCars/inserttypecar" message="tns:IServiceTypeCars_inserttypecar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceTypeCars/inserttypecarResponse" message="tns:IServiceTypeCars_inserttypecar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatetypecar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceTypeCars/updatetypecar" message="tns:IServiceTypeCars_updatetypecar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceTypeCars/updatetypecarResponse" message="tns:IServiceTypeCars_updatetypecar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletetypecar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceTypeCars/deletetypecar" message="tns:IServiceTypeCars_deletetypecar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceTypeCars/deletetypecarResponse" message="tns:IServiceTypeCars_deletetypecar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="gettypecarById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceTypeCars/gettypecarById" message="tns:IServiceTypeCars_gettypecarById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceTypeCars/gettypecarByIdResponse" message="tns:IServiceTypeCars_gettypecarById_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceTypeCars" type="tns:IServiceTypeCars">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="gettypecars">
+      <soap:operation soapAction="http://tempuri.org/IServiceTypeCars/gettypecars" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inserttypecar">
+      <soap:operation soapAction="http://tempuri.org/IServiceTypeCars/inserttypecar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatetypecar">
+      <soap:operation soapAction="http://tempuri.org/IServiceTypeCars/updatetypecar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletetypecar">
+      <soap:operation soapAction="http://tempuri.org/IServiceTypeCars/deletetypecar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gettypecarById">
+      <soap:operation soapAction="http://tempuri.org/IServiceTypeCars/gettypecarById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceTypeCars">
+    <wsdl:port name="BasicHttpBinding_IServiceTypeCars" binding="tns:BasicHttpBinding_IServiceTypeCars">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/wcf_fullcarwash/ServiceTypeCars/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

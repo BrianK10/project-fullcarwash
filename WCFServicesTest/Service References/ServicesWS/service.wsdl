@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceServices_getservices_InputMessage">
+    <wsdl:part name="parameters" element="tns:getservices" />
+  </wsdl:message>
+  <wsdl:message name="IServiceServices_getservices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getservicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceServices_insertservice_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertservice" />
+  </wsdl:message>
+  <wsdl:message name="IServiceServices_insertservice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertserviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceServices_updateservice_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateservice" />
+  </wsdl:message>
+  <wsdl:message name="IServiceServices_updateservice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateserviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceServices_deleteservice_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteservice" />
+  </wsdl:message>
+  <wsdl:message name="IServiceServices_deleteservice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteserviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceServices_getserviceById_InputMessage">
+    <wsdl:part name="parameters" element="tns:getserviceById" />
+  </wsdl:message>
+  <wsdl:message name="IServiceServices_getserviceById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getserviceByIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceServices">
+    <wsdl:operation name="getservices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceServices/getservices" message="tns:IServiceServices_getservices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceServices/getservicesResponse" message="tns:IServiceServices_getservices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertservice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceServices/insertservice" message="tns:IServiceServices_insertservice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceServices/insertserviceResponse" message="tns:IServiceServices_insertservice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateservice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceServices/updateservice" message="tns:IServiceServices_updateservice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceServices/updateserviceResponse" message="tns:IServiceServices_updateservice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteservice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceServices/deleteservice" message="tns:IServiceServices_deleteservice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceServices/deleteserviceResponse" message="tns:IServiceServices_deleteservice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getserviceById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceServices/getserviceById" message="tns:IServiceServices_getserviceById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceServices/getserviceByIdResponse" message="tns:IServiceServices_getserviceById_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceServices" type="tns:IServiceServices">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getservices">
+      <soap:operation soapAction="http://tempuri.org/IServiceServices/getservices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertservice">
+      <soap:operation soapAction="http://tempuri.org/IServiceServices/insertservice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateservice">
+      <soap:operation soapAction="http://tempuri.org/IServiceServices/updateservice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteservice">
+      <soap:operation soapAction="http://tempuri.org/IServiceServices/deleteservice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getserviceById">
+      <soap:operation soapAction="http://tempuri.org/IServiceServices/getserviceById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceServices">
+    <wsdl:port name="BasicHttpBinding_IServiceServices" binding="tns:BasicHttpBinding_IServiceServices">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/wcf_fullcarwash/ServiceServices/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

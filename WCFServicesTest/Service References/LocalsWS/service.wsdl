@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceLocal" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceLocal_getlocals_InputMessage">
+    <wsdl:part name="parameters" element="tns:getlocals" />
+  </wsdl:message>
+  <wsdl:message name="IServiceLocal_getlocals_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getlocalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceLocal_insertlocal_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertlocal" />
+  </wsdl:message>
+  <wsdl:message name="IServiceLocal_insertlocal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertlocalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceLocal_updatelocal_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatelocal" />
+  </wsdl:message>
+  <wsdl:message name="IServiceLocal_updatelocal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatelocalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceLocal_deletelocal_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletelocal" />
+  </wsdl:message>
+  <wsdl:message name="IServiceLocal_deletelocal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletelocalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceLocal_getlocalById_InputMessage">
+    <wsdl:part name="parameters" element="tns:getlocalById" />
+  </wsdl:message>
+  <wsdl:message name="IServiceLocal_getlocalById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getlocalByIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceLocal">
+    <wsdl:operation name="getlocals">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceLocal/getlocals" message="tns:IServiceLocal_getlocals_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceLocal/getlocalsResponse" message="tns:IServiceLocal_getlocals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertlocal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceLocal/insertlocal" message="tns:IServiceLocal_insertlocal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceLocal/insertlocalResponse" message="tns:IServiceLocal_insertlocal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatelocal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceLocal/updatelocal" message="tns:IServiceLocal_updatelocal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceLocal/updatelocalResponse" message="tns:IServiceLocal_updatelocal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletelocal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceLocal/deletelocal" message="tns:IServiceLocal_deletelocal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceLocal/deletelocalResponse" message="tns:IServiceLocal_deletelocal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getlocalById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceLocal/getlocalById" message="tns:IServiceLocal_getlocalById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceLocal/getlocalByIdResponse" message="tns:IServiceLocal_getlocalById_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceLocal" type="tns:IServiceLocal">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getlocals">
+      <soap:operation soapAction="http://tempuri.org/IServiceLocal/getlocals" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertlocal">
+      <soap:operation soapAction="http://tempuri.org/IServiceLocal/insertlocal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatelocal">
+      <soap:operation soapAction="http://tempuri.org/IServiceLocal/updatelocal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletelocal">
+      <soap:operation soapAction="http://tempuri.org/IServiceLocal/deletelocal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getlocalById">
+      <soap:operation soapAction="http://tempuri.org/IServiceLocal/getlocalById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceLocal">
+    <wsdl:port name="BasicHttpBinding_IServiceLocal" binding="tns:BasicHttpBinding_IServiceLocal">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/wcf_fullcarwash/ServiceLocal/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
