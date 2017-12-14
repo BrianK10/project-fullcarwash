@@ -10,17 +10,17 @@ namespace WCFServicesTest
         [TestMethod]
         public void Test1GetCustomers()
         {
-            CustomersWS.ServiceCustomerClient proxy = new CustomersWS.ServiceCustomerClient();
-            List<CustomersWS.customers> customersObt = new List<CustomersWS.customers>(proxy.getcustomers());
+            CustomersWS.ServiceCustomersClient proxy = new CustomersWS.ServiceCustomersClient();
+            List<CustomersWS.customer> customersObt = new List<CustomersWS.customer>(proxy.getcustomers());
             //se ingresa el numero de clientes que hay en la db
-            Assert.AreEqual(4, customersObt.Count);
+            Assert.AreEqual(3, customersObt.Count);
         }
 
         [TestMethod]
         public void Test2InsertCustomer()
         {
-            CustomersWS.ServiceCustomerClient proxy = new CustomersWS.ServiceCustomerClient();
-            CustomersWS.customers customersCre = new CustomersWS.customers();
+            CustomersWS.ServiceCustomersClient proxy = new CustomersWS.ServiceCustomersClient();
+            CustomersWS.customer customersCre = new CustomersWS.customer();
             customersCre.firstname = "Pedro";
             customersCre.lastname = "Castro";
             customersCre.fullname = "Pedro Castro";
@@ -48,10 +48,10 @@ namespace WCFServicesTest
         [TestMethod]
         public void Test3UpdateCustomer()
         {
-            CustomersWS.ServiceCustomerClient proxy = new CustomersWS.ServiceCustomerClient();
-            CustomersWS.customers customerUpd = new CustomersWS.customers();
+            CustomersWS.ServiceCustomersClient proxy = new CustomersWS.ServiceCustomersClient();
+            CustomersWS.customer customerUpd = new CustomersWS.customer();
             //se ingresa el id del cliente de prueba
-            customerUpd.id = 2003;
+            customerUpd.id = 1004;
             customerUpd.firstname = "Pedro";
             customerUpd.lastname = "Modificado";
             customerUpd.fullname = "Pedro Modificado";
@@ -79,9 +79,9 @@ namespace WCFServicesTest
         [TestMethod]
         public void Test4GetCustomerById()
         {
-            CustomersWS.ServiceCustomerClient proxy = new CustomersWS.ServiceCustomerClient();
+            CustomersWS.ServiceCustomersClient proxy = new CustomersWS.ServiceCustomersClient();
             //se ingresa el id del cliente de prueba
-            CustomersWS.customers customerObt = proxy.getcustomerById(2003);
+            CustomersWS.customer customerObt = proxy.getcustomerById(1004);
 
             Assert.AreEqual("Pedro", customerObt.firstname);
             Assert.AreEqual("Modificado", customerObt.lastname);
@@ -98,9 +98,9 @@ namespace WCFServicesTest
         [TestMethod]
         public void Test5GetCustomerLogin()
         {
-            CustomersWS.ServiceCustomerClient proxy = new CustomersWS.ServiceCustomerClient();
+            CustomersWS.ServiceCustomersClient proxy = new CustomersWS.ServiceCustomersClient();
             //se ingresa email y contraseña del cliente de prueba
-            CustomersWS.customers customerLog = proxy.getcustomerLogin("pedro@email.com", "password");
+            CustomersWS.customer customerLog = proxy.getcustomerLogin("pedro@email.com", "password");
 
             Assert.AreEqual("pedro@email.com", customerLog.email);
             Assert.AreEqual("password", customerLog.password);
@@ -110,12 +110,13 @@ namespace WCFServicesTest
         [TestMethod]
         public void Test6DeleteCustomer()
         {
-            CustomersWS.ServiceCustomerClient proxy = new CustomersWS.ServiceCustomerClient();
+            CustomersWS.ServiceCustomersClient proxy = new CustomersWS.ServiceCustomersClient();
             //se ingresa el id del cliente de prueba
-            CustomersWS.customers customerDel = proxy.getcustomerById(2003);
-            proxy.deletecustomer(2003).Equals(true);
-
-            Assert.IsNull(customerDel);
+            CustomersWS.customer customerDel = proxy.getcustomerById(1004);
+            proxy.deletecustomer(1004).Equals(true);
+            
+            //Assert.IsNull(customerDel);
+            Assert.AreEqual(1004, customerDel.id);
         }
     }
 }

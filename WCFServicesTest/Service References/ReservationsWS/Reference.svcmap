@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="70e46273-ce63-4ebc-b703-92ec878245cc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/wcf_fullcarwash/ServiceReservations/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="deebba4e-c60c-44ad-bf80-ce8426be7002" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/wcf_fullcarwash/ServiceReservations/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="fb1de6e9-acf6-4f74-bbba-75277130a8cd" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/wcf_fullcarwash/ServiceReservations/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="085715c0-5bf0-40bb-ab75-bf1553f14e24" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/wcf_fullcarwash/ServiceReservations/mex" />
+    <MetadataFile FileName="wcf_fullcarwash.xsd" MetadataType="Schema" ID="00d36fe6-dc2b-4996-ac60-941d64e5715d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/wcf_fullcarwash/ServiceReservations/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

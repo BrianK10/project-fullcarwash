@@ -9,28 +9,28 @@ namespace wcf_fullcarwash
 {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IServiceLocal" en el código y en el archivo de configuración a la vez.
     [ServiceContract]
-    public interface IServiceReservation
+    public interface IServiceReservations
     {
         [OperationContract]
-        List<reservations> getreservation();
+        List<reservation> getreservations();
         
         [OperationContract]
-        bool insertreservation(reservations objreserv);
+        bool insertreservation(reservation objreserv);
 
         [OperationContract]
-        bool updatereservation(reservations objreserv);
+        bool updatereservation(reservation objreserv);
 
         [OperationContract]
         bool deletereservation(int id);
 
         [OperationContract]
-        reservations getreservationById(int id);
+        reservation getreservationById(int id);
     }
 
     [DataContract]
     [Serializable]
 
-    public class reservations
+    public class reservation
     {
         private int _id;
 

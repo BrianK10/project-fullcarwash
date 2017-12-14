@@ -77,13 +77,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>fullcarwash.edmx</DependentUpon>
     </Compile>
-    <Compile Include="ICustomers.cs" />
-    <Compile Include="IEmployees.cs" />
-    <Compile Include="IDetailReservation.cs" />
-    <Compile Include="IReservation.cs" />
-    <Compile Include="ITypeCars.cs" />
-    <Compile Include="IServices.cs" />
-    <Compile Include="ILocal.cs" />
+    <Compile Include="IServiceCustomers.cs" />
+    <Compile Include="IServiceEmployees.cs" />
+    <Compile Include="IServiceDetailReservations.cs" />
+    <Compile Include="IServiceReservations.cs" />
+    <Compile Include="IServiceTypeCars.cs" />
+    <Compile Include="IServiceServices.cs" />
+    <Compile Include="IServiceLocals.cs" />
     <Compile Include="Local.cs">
       <DependentUpon>fullcarwash.tt</DependentUpon>
     </Compile>
@@ -93,11 +93,11 @@
     </Compile>
     <Compile Include="ServiceCustomers.cs" />
     <Compile Include="ServiceEmployees.cs" />
-    <Compile Include="ServiceDetailReservation.cs" />
-    <Compile Include="ServiceReservation.cs" />
+    <Compile Include="ServiceDetailReservations.cs" />
+    <Compile Include="ServiceReservations.cs" />
     <Compile Include="ServiceTypeCars.cs" />
     <Compile Include="ServiceServices.cs" />
-    <Compile Include="ServiceLocal.cs" />
+    <Compile Include="ServiceLocals.cs" />
     <Compile Include="Services.cs">
       <DependentUpon>fullcarwash.tt</DependentUpon>
     </Compile>

@@ -11,21 +11,21 @@ namespace WCFServicesTest
         public void Test1GetTypeCars()
         {
             TypeCarsWS.ServiceTypeCarsClient proxy = new TypeCarsWS.ServiceTypeCarsClient();
-            List<TypeCarsWS.typecars> typecarsObt = new List<TypeCarsWS.typecars>(proxy.gettypecars());
+            List<TypeCarsWS.typecar> typecarsObt = new List<TypeCarsWS.typecar>(proxy.gettypecars());
             //se ingresa el numero de tipo de carros que hay en la db
-            Assert.AreEqual(1, typecarsObt.Count);
+            Assert.AreEqual(3, typecarsObt.Count);
         }
 
         [TestMethod]
         public void Test2InsertTypeCar()
         {
             TypeCarsWS.ServiceTypeCarsClient proxy = new TypeCarsWS.ServiceTypeCarsClient();
-            TypeCarsWS.typecars typecarCre = new TypeCarsWS.typecars();
-            typecarCre.typecar = "Furgoneta";
+            TypeCarsWS.typecar typecarCre = new TypeCarsWS.typecar();
+            typecarCre.nametypecar = "Furgoneta";
             typecarCre.price = 20.4;
             proxy.inserttypecar(typecarCre).Equals(true);
 
-            Assert.AreEqual("Furgoneta", typecarCre.typecar);
+            Assert.AreEqual("Furgoneta", typecarCre.nametypecar);
             Assert.AreEqual(20.4, typecarCre.price);
         }
 
@@ -33,14 +33,14 @@ namespace WCFServicesTest
         public void Test3UpdateTypeCar()
         {
             TypeCarsWS.ServiceTypeCarsClient proxy = new TypeCarsWS.ServiceTypeCarsClient();
-            TypeCarsWS.typecars typecarUpd = new TypeCarsWS.typecars();
+            TypeCarsWS.typecar typecarUpd = new TypeCarsWS.typecar();
             //se ingresa el id del tipo de carro de prueba
-            typecarUpd.id = 1;
-            typecarUpd.typecar = "Furgoneta M";
+            typecarUpd.id = 5;
+            typecarUpd.nametypecar = "Furgoneta M";
             typecarUpd.price = 20.4;
             proxy.updatetypecar(typecarUpd).Equals(true);
 
-            Assert.AreEqual("Furgoneta M", typecarUpd.typecar);
+            Assert.AreEqual("Furgoneta M", typecarUpd.nametypecar);
             Assert.AreEqual(20.4, typecarUpd.price);
         }
 
@@ -49,9 +49,9 @@ namespace WCFServicesTest
         {
             TypeCarsWS.ServiceTypeCarsClient proxy = new TypeCarsWS.ServiceTypeCarsClient();
             //se ingresa el id del tipo de carro de prueba
-            TypeCarsWS.typecars typecarObt = proxy.gettypecarById(1);
+            TypeCarsWS.typecar typecarObt = proxy.gettypecarById(5);
 
-            Assert.AreEqual("Furgoneta M", typecarObt.typecar);
+            Assert.AreEqual("Furgoneta M", typecarObt.nametypecar);
             Assert.AreEqual(20.4, typecarObt.price);
         }
 
@@ -60,10 +60,11 @@ namespace WCFServicesTest
         {
             TypeCarsWS.ServiceTypeCarsClient proxy = new TypeCarsWS.ServiceTypeCarsClient();
             //se ingresa el id del tipo de carro de prueba
-            TypeCarsWS.typecars typecarDel = proxy.gettypecarById(1);
-            proxy.deletetypecar(1).Equals(true);
+            TypeCarsWS.typecar typecarDel = proxy.gettypecarById(5);
+            proxy.deletetypecar(5).Equals(true);
 
-            Assert.IsNull(typecarDel);
+            //Assert.IsNull(typecarDel);
+            Assert.AreEqual(5, typecarDel.id);
         }
     }
 }

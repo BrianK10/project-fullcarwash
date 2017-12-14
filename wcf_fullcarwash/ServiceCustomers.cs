@@ -10,20 +10,20 @@ using System.Text;
 namespace wcf_fullcarwash
 {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Service1" en el código y en el archivo de configuración a la vez.
-    public class ServiceCustomers : IServiceCustomer
+    public class ServiceCustomers : IServiceCustomers
     {
         Boolean value;
-        public List<customers> getcustomers()
+        public List<customer> getcustomers()
         {
             fullcarwashEntities model = new fullcarwashEntities();
-            List<customers> objlstcustomer = new List<customers>();
+            List<customer> objlstcustomer = new List<customer>();
 
             try
             {
                 var query = model.SP_SELECT_CUSTOMERS();
                 foreach (var result in query)
                 {
-                    customers objcustomer = new customers();
+                    customer objcustomer = new customer();
 
                     objcustomer.id = result.idCustomer;
                     objcustomer.firstname= result.firstName;
@@ -48,7 +48,7 @@ namespace wcf_fullcarwash
             return objlstcustomer;
         }
 
-        public Boolean insertcustomer(customers objcustomer)
+        public Boolean insertcustomer(customer objcustomer)
         {
             fullcarwashEntities model = new fullcarwashEntities();            
             
@@ -81,7 +81,7 @@ namespace wcf_fullcarwash
             return value;
         }
 
-        public Boolean updatecustomer(customers objcustomer)
+        public Boolean updatecustomer(customer objcustomer)
         {
             fullcarwashEntities model = new fullcarwashEntities();
             try
@@ -138,10 +138,10 @@ namespace wcf_fullcarwash
         }
 
 
-        public customers getcustomerById(int id)
+        public customer getcustomerById(int id)
         {
             fullcarwashEntities model = new fullcarwashEntities();
-            customers objcust = new customers();
+            customer objcust = new customer();
 
             try
             {
@@ -168,11 +168,11 @@ namespace wcf_fullcarwash
             }
             return objcust;
         }
-        public customers getcustomerLogin(string email, string password)
+        public customer getcustomerLogin(string email, string password)
         {
             
             fullcarwashEntities model = new fullcarwashEntities();
-            customers objcust = new customers();
+            customer objcust = new customer();
 
             try
             {

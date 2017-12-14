@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" />
-  <xs:element name="getreservation">
+  <xs:element name="getreservations">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="getreservationResponse">
+  <xs:element name="getreservationsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="getreservationResult" nillable="true" type="q1:ArrayOfreservations" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="getreservationsResult" nillable="true" type="q1:ArrayOfreservation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="insertreservation">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="objreserv" nillable="true" type="q2:reservations" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="objreserv" nillable="true" type="q2:reservation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -30,7 +30,7 @@
   <xs:element name="updatereservation">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="objreserv" nillable="true" type="q3:reservations" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="objreserv" nillable="true" type="q3:reservation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -65,7 +65,7 @@
   <xs:element name="getreservationByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="getreservationByIdResult" nillable="true" type="q4:reservations" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="getreservationByIdResult" nillable="true" type="q4:reservation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

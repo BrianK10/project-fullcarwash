@@ -13,7 +13,7 @@ namespace WCFServicesTest
             ServicesWS.ServiceServicesClient proxy = new ServicesWS.ServiceServicesClient();
             List<ServicesWS.service> servicesObt = new List<ServicesWS.service>(proxy.getservices());
             //se ingresa el numero de servicios que hay en la db
-            Assert.AreEqual(0, servicesObt.Count);
+            Assert.AreEqual(2, servicesObt.Count);
         }
 
         [TestMethod]
@@ -40,7 +40,7 @@ namespace WCFServicesTest
             ServicesWS.ServiceServicesClient proxy = new ServicesWS.ServiceServicesClient();
             ServicesWS.service serviceUpd = new ServicesWS.service();
             //se ingresa el id del servicio de prueba
-            serviceUpd.id = 1;
+            serviceUpd.id = 4;
             serviceUpd.idLocal = 1;
             serviceUpd.nameService = "Lavado y encerado";
             serviceUpd.typeService = "A domicilio";
@@ -58,7 +58,7 @@ namespace WCFServicesTest
         {
             ServicesWS.ServiceServicesClient proxy = new ServicesWS.ServiceServicesClient();
             //se ingresa el id del servicio de prueba
-            ServicesWS.service serviceObt = proxy.getserviceById(1);
+            ServicesWS.service serviceObt = proxy.getserviceById(4);
 
             Assert.AreEqual(1, serviceObt.idLocal);
             Assert.AreEqual("Lavado y encerado", serviceObt.nameService);
@@ -71,10 +71,11 @@ namespace WCFServicesTest
         {
             ServicesWS.ServiceServicesClient proxy = new ServicesWS.ServiceServicesClient();
             //se ingresa el id del servicio de prueba
-            ServicesWS.service serviceDel = proxy.getserviceById(1);
-            proxy.deleteservice(1).Equals(true);
+            ServicesWS.service serviceDel = proxy.getserviceById(4);
+            proxy.deleteservice(4).Equals(true);
 
-            Assert.IsNull(serviceDel);
+            //Assert.IsNull(serviceDel);
+            Assert.AreEqual(4, serviceDel.id);
         }
     }
 }

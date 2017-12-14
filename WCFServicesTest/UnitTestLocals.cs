@@ -10,17 +10,17 @@ namespace WCFServicesTest
         [TestMethod]
         public void Test1GetLocals()
         {
-            LocalsWS.ServiceLocalClient proxy = new LocalsWS.ServiceLocalClient();
-            List<LocalsWS.locals> localsObt = new List<LocalsWS.locals>(proxy.getlocals());
+            LocalsWS.ServiceLocalsClient proxy = new LocalsWS.ServiceLocalsClient();
+            List<LocalsWS.local> localsObt = new List<LocalsWS.local>(proxy.getlocals());
             //se ingresa el numero de locales que hay en la db
-            Assert.AreEqual(4, localsObt.Count);
+            Assert.AreEqual(6, localsObt.Count);
         }
 
         [TestMethod]
         public void Test2InsertLocal()
         {
-            LocalsWS.ServiceLocalClient proxy = new LocalsWS.ServiceLocalClient();
-            LocalsWS.locals localCre = new LocalsWS.locals();
+            LocalsWS.ServiceLocalsClient proxy = new LocalsWS.ServiceLocalsClient();
+            LocalsWS.local localCre = new LocalsWS.local();
             localCre.name = "VIII";
             localCre.address = "av. Benavides 424";
             localCre.schedules = "8am - 6pm";
@@ -34,10 +34,10 @@ namespace WCFServicesTest
         [TestMethod]
         public void Test3UpdateLocal()
         {
-            LocalsWS.ServiceLocalClient proxy = new LocalsWS.ServiceLocalClient();
-            LocalsWS.locals localUpd = new LocalsWS.locals();
+            LocalsWS.ServiceLocalsClient proxy = new LocalsWS.ServiceLocalsClient();
+            LocalsWS.local localUpd = new LocalsWS.local();
             //se ingresa el id del local de prueba
-            localUpd.id = 5;
+            localUpd.id = 1005;
             localUpd.name = "VIII Modificado";
             localUpd.address = "av. Benavides 424";
             localUpd.schedules = "8am - 6pm";
@@ -51,9 +51,9 @@ namespace WCFServicesTest
         [TestMethod]
         public void Test4GetLocalById()
         {
-            LocalsWS.ServiceLocalClient proxy = new LocalsWS.ServiceLocalClient();
+            LocalsWS.ServiceLocalsClient proxy = new LocalsWS.ServiceLocalsClient();
             //se ingresa el id del local de prueba
-            LocalsWS.locals localObt = proxy.getlocalById(5);
+            LocalsWS.local localObt = proxy.getlocalById(1005);
 
             Assert.AreEqual("VIII Modificado", localObt.name);
             Assert.AreEqual("av. Benavides 424", localObt.address);
@@ -63,12 +63,13 @@ namespace WCFServicesTest
         [TestMethod]
         public void Test5DeleteLocal()
         {
-            LocalsWS.ServiceLocalClient proxy = new LocalsWS.ServiceLocalClient();
+            LocalsWS.ServiceLocalsClient proxy = new LocalsWS.ServiceLocalsClient();
             //se ingresa el id del local de prueba
-            LocalsWS.locals localDel = proxy.getlocalById(5);
-            proxy.deletelocal(5).Equals(true);
+            LocalsWS.local localDel = proxy.getlocalById(1005);
+            proxy.deletelocal(1005).Equals(true);
 
-            Assert.IsNull(localDel);
+            //Assert.IsNull(localDel);
+            Assert.AreEqual(1005, localDel.id);
         }
     }
 }

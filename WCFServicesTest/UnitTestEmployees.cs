@@ -11,7 +11,7 @@ namespace WCFServicesTest
         public void Test1GetEmployees()
         {
             EmployeesWS.ServiceEmployeesClient proxy = new EmployeesWS.ServiceEmployeesClient();
-            List<EmployeesWS.employees> employeesObt = new List<EmployeesWS.employees>(proxy.getemployees());
+            List<EmployeesWS.employee> employeesObt = new List<EmployeesWS.employee>(proxy.getemployees());
             //se ingresa el numero de empleados que hay en la db
             Assert.AreEqual(1, employeesObt.Count);
         }
@@ -20,7 +20,7 @@ namespace WCFServicesTest
         public void Test2InsertEmployee()
         {
             EmployeesWS.ServiceEmployeesClient proxy = new EmployeesWS.ServiceEmployeesClient();
-            EmployeesWS.employees employeeCre = new EmployeesWS.employees();
+            EmployeesWS.employee employeeCre = new EmployeesWS.employee();
             employeeCre.firstname = "Jose";
             employeeCre.lastname = "Rosas";
             employeeCre.fullname = "Jose Rosas";
@@ -43,9 +43,9 @@ namespace WCFServicesTest
         public void Test3UpdateEmployee()
         {
             EmployeesWS.ServiceEmployeesClient proxy = new EmployeesWS.ServiceEmployeesClient();
-            EmployeesWS.employees employeeUpd = new EmployeesWS.employees();
+            EmployeesWS.employee employeeUpd = new EmployeesWS.employee();
             //se ingresa el id del empleado de prueba
-            employeeUpd.id = 1;
+            employeeUpd.id = 3;
             employeeUpd.firstname = "Jose";
             employeeUpd.lastname = "Modificado";
             employeeUpd.fullname = "Jose Modificado";
@@ -69,7 +69,7 @@ namespace WCFServicesTest
         {
             EmployeesWS.ServiceEmployeesClient proxy = new EmployeesWS.ServiceEmployeesClient();
             //se ingresa el id del empleado de prueba
-            EmployeesWS.employees employeeObt = proxy.getemployeeById(1);
+            EmployeesWS.employee employeeObt = proxy.getemployeeById(3);
 
             Assert.AreEqual("Jose", employeeObt.firstname);
             Assert.AreEqual("Modificado", employeeObt.lastname);
@@ -85,7 +85,7 @@ namespace WCFServicesTest
         {
             EmployeesWS.ServiceEmployeesClient proxy = new EmployeesWS.ServiceEmployeesClient();
             //se ingresa email y contraseña del empleado de prueba
-            EmployeesWS.employees employeeLog = proxy.getemployeeLogin("jose@email.com", "password");
+            EmployeesWS.employee employeeLog = proxy.getemployeeLogin("jose@email.com", "password");
 
             Assert.AreEqual("jose@email.com", employeeLog.email);
             Assert.AreEqual("password", employeeLog.password);
@@ -97,10 +97,11 @@ namespace WCFServicesTest
         {
             EmployeesWS.ServiceEmployeesClient proxy = new EmployeesWS.ServiceEmployeesClient();
             //se ingresa el id del empleado de prueba
-            EmployeesWS.employees employeeDel = proxy.getemployeeById(1);
-            proxy.deleteemployee(1).Equals(true);
+            EmployeesWS.employee employeeDel = proxy.getemployeeById(3);
+            proxy.deleteemployee(3).Equals(true);
 
-            Assert.IsNull(employeeDel);
+            //Assert.IsNull(employeeDel);
+            Assert.AreEqual(3, employeeDel.id);
         }
     }
 }

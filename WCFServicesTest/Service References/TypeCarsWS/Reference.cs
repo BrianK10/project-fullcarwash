@@ -15,9 +15,9 @@ namespace WCFServicesTest.TypeCarsWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="typecars", Namespace="http://schemas.datacontract.org/2004/07/wcf_fullcarwash")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="typecar", Namespace="http://schemas.datacontract.org/2004/07/wcf_fullcarwash")]
     [System.SerializableAttribute()]
-    public partial class typecars : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class typecar : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -26,10 +26,10 @@ namespace WCFServicesTest.TypeCarsWS {
         private int idField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double priceField;
+        private string nametypecarField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string typecarField;
+        private double priceField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -55,6 +55,19 @@ namespace WCFServicesTest.TypeCarsWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string nametypecar {
+            get {
+                return this.nametypecarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nametypecarField, value) != true)) {
+                    this.nametypecarField = value;
+                    this.RaisePropertyChanged("nametypecar");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public double price {
             get {
                 return this.priceField;
@@ -63,19 +76,6 @@ namespace WCFServicesTest.TypeCarsWS {
                 if ((this.priceField.Equals(value) != true)) {
                     this.priceField = value;
                     this.RaisePropertyChanged("price");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string typecar {
-            get {
-                return this.typecarField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.typecarField, value) != true)) {
-                    this.typecarField = value;
-                    this.RaisePropertyChanged("typecar");
                 }
             }
         }
@@ -95,22 +95,22 @@ namespace WCFServicesTest.TypeCarsWS {
     public interface IServiceTypeCars {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceTypeCars/gettypecars", ReplyAction="http://tempuri.org/IServiceTypeCars/gettypecarsResponse")]
-        WCFServicesTest.TypeCarsWS.typecars[] gettypecars();
+        WCFServicesTest.TypeCarsWS.typecar[] gettypecars();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceTypeCars/gettypecars", ReplyAction="http://tempuri.org/IServiceTypeCars/gettypecarsResponse")]
-        System.Threading.Tasks.Task<WCFServicesTest.TypeCarsWS.typecars[]> gettypecarsAsync();
+        System.Threading.Tasks.Task<WCFServicesTest.TypeCarsWS.typecar[]> gettypecarsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceTypeCars/inserttypecar", ReplyAction="http://tempuri.org/IServiceTypeCars/inserttypecarResponse")]
-        bool inserttypecar(WCFServicesTest.TypeCarsWS.typecars objtype);
+        bool inserttypecar(WCFServicesTest.TypeCarsWS.typecar objtype);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceTypeCars/inserttypecar", ReplyAction="http://tempuri.org/IServiceTypeCars/inserttypecarResponse")]
-        System.Threading.Tasks.Task<bool> inserttypecarAsync(WCFServicesTest.TypeCarsWS.typecars objtype);
+        System.Threading.Tasks.Task<bool> inserttypecarAsync(WCFServicesTest.TypeCarsWS.typecar objtype);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceTypeCars/updatetypecar", ReplyAction="http://tempuri.org/IServiceTypeCars/updatetypecarResponse")]
-        bool updatetypecar(WCFServicesTest.TypeCarsWS.typecars objtype);
+        bool updatetypecar(WCFServicesTest.TypeCarsWS.typecar objtype);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceTypeCars/updatetypecar", ReplyAction="http://tempuri.org/IServiceTypeCars/updatetypecarResponse")]
-        System.Threading.Tasks.Task<bool> updatetypecarAsync(WCFServicesTest.TypeCarsWS.typecars objtype);
+        System.Threading.Tasks.Task<bool> updatetypecarAsync(WCFServicesTest.TypeCarsWS.typecar objtype);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceTypeCars/deletetypecar", ReplyAction="http://tempuri.org/IServiceTypeCars/deletetypecarResponse")]
         bool deletetypecar(int id);
@@ -119,10 +119,10 @@ namespace WCFServicesTest.TypeCarsWS {
         System.Threading.Tasks.Task<bool> deletetypecarAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceTypeCars/gettypecarById", ReplyAction="http://tempuri.org/IServiceTypeCars/gettypecarByIdResponse")]
-        WCFServicesTest.TypeCarsWS.typecars gettypecarById(int id);
+        WCFServicesTest.TypeCarsWS.typecar gettypecarById(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceTypeCars/gettypecarById", ReplyAction="http://tempuri.org/IServiceTypeCars/gettypecarByIdResponse")]
-        System.Threading.Tasks.Task<WCFServicesTest.TypeCarsWS.typecars> gettypecarByIdAsync(int id);
+        System.Threading.Tasks.Task<WCFServicesTest.TypeCarsWS.typecar> gettypecarByIdAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -152,27 +152,27 @@ namespace WCFServicesTest.TypeCarsWS {
                 base(binding, remoteAddress) {
         }
         
-        public WCFServicesTest.TypeCarsWS.typecars[] gettypecars() {
+        public WCFServicesTest.TypeCarsWS.typecar[] gettypecars() {
             return base.Channel.gettypecars();
         }
         
-        public System.Threading.Tasks.Task<WCFServicesTest.TypeCarsWS.typecars[]> gettypecarsAsync() {
+        public System.Threading.Tasks.Task<WCFServicesTest.TypeCarsWS.typecar[]> gettypecarsAsync() {
             return base.Channel.gettypecarsAsync();
         }
         
-        public bool inserttypecar(WCFServicesTest.TypeCarsWS.typecars objtype) {
+        public bool inserttypecar(WCFServicesTest.TypeCarsWS.typecar objtype) {
             return base.Channel.inserttypecar(objtype);
         }
         
-        public System.Threading.Tasks.Task<bool> inserttypecarAsync(WCFServicesTest.TypeCarsWS.typecars objtype) {
+        public System.Threading.Tasks.Task<bool> inserttypecarAsync(WCFServicesTest.TypeCarsWS.typecar objtype) {
             return base.Channel.inserttypecarAsync(objtype);
         }
         
-        public bool updatetypecar(WCFServicesTest.TypeCarsWS.typecars objtype) {
+        public bool updatetypecar(WCFServicesTest.TypeCarsWS.typecar objtype) {
             return base.Channel.updatetypecar(objtype);
         }
         
-        public System.Threading.Tasks.Task<bool> updatetypecarAsync(WCFServicesTest.TypeCarsWS.typecars objtype) {
+        public System.Threading.Tasks.Task<bool> updatetypecarAsync(WCFServicesTest.TypeCarsWS.typecar objtype) {
             return base.Channel.updatetypecarAsync(objtype);
         }
         
@@ -184,11 +184,11 @@ namespace WCFServicesTest.TypeCarsWS {
             return base.Channel.deletetypecarAsync(id);
         }
         
-        public WCFServicesTest.TypeCarsWS.typecars gettypecarById(int id) {
+        public WCFServicesTest.TypeCarsWS.typecar gettypecarById(int id) {
             return base.Channel.gettypecarById(id);
         }
         
-        public System.Threading.Tasks.Task<WCFServicesTest.TypeCarsWS.typecars> gettypecarByIdAsync(int id) {
+        public System.Threading.Tasks.Task<WCFServicesTest.TypeCarsWS.typecar> gettypecarByIdAsync(int id) {
             return base.Channel.gettypecarByIdAsync(id);
         }
     }

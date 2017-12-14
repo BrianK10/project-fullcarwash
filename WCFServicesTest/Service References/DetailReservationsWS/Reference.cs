@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WCFServicesTest.DetailReservationWS {
+namespace WCFServicesTest.DetailReservationsWS {
     using System.Runtime.Serialization;
     using System;
     
@@ -21,6 +21,9 @@ namespace WCFServicesTest.DetailReservationWS {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string carRegistrationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double fullpaymentField;
@@ -46,9 +49,6 @@ namespace WCFServicesTest.DetailReservationWS {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double pricetypecarField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string typecarField;
-        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -56,6 +56,19 @@ namespace WCFServicesTest.DetailReservationWS {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string carRegistration {
+            get {
+                return this.carRegistrationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.carRegistrationField, value) != true)) {
+                    this.carRegistrationField = value;
+                    this.RaisePropertyChanged("carRegistration");
+                }
             }
         }
         
@@ -163,19 +176,6 @@ namespace WCFServicesTest.DetailReservationWS {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string typecar {
-            get {
-                return this.typecarField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.typecarField, value) != true)) {
-                    this.typecarField = value;
-                    this.RaisePropertyChanged("typecar");
-                }
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -187,88 +187,88 @@ namespace WCFServicesTest.DetailReservationWS {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DetailReservationWS.IServiceDetailReservation")]
-    public interface IServiceDetailReservation {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DetailReservationsWS.IServiceDetailReservations")]
+    public interface IServiceDetailReservations {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservation/getdetailreservation", ReplyAction="http://tempuri.org/IServiceDetailReservation/getdetailreservationResponse")]
-        WCFServicesTest.DetailReservationWS.detailreservation[] getdetailreservation();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservations/getdetailreservations", ReplyAction="http://tempuri.org/IServiceDetailReservations/getdetailreservationsResponse")]
+        WCFServicesTest.DetailReservationsWS.detailreservation[] getdetailreservations();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservation/getdetailreservation", ReplyAction="http://tempuri.org/IServiceDetailReservation/getdetailreservationResponse")]
-        System.Threading.Tasks.Task<WCFServicesTest.DetailReservationWS.detailreservation[]> getdetailreservationAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservations/getdetailreservations", ReplyAction="http://tempuri.org/IServiceDetailReservations/getdetailreservationsResponse")]
+        System.Threading.Tasks.Task<WCFServicesTest.DetailReservationsWS.detailreservation[]> getdetailreservationsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservation/insertdetailreservation", ReplyAction="http://tempuri.org/IServiceDetailReservation/insertdetailreservationResponse")]
-        bool insertdetailreservation(WCFServicesTest.DetailReservationWS.detailreservation objdetail);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservations/insertdetailreservation", ReplyAction="http://tempuri.org/IServiceDetailReservations/insertdetailreservationResponse")]
+        bool insertdetailreservation(WCFServicesTest.DetailReservationsWS.detailreservation objdetail);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservation/insertdetailreservation", ReplyAction="http://tempuri.org/IServiceDetailReservation/insertdetailreservationResponse")]
-        System.Threading.Tasks.Task<bool> insertdetailreservationAsync(WCFServicesTest.DetailReservationWS.detailreservation objdetail);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservations/insertdetailreservation", ReplyAction="http://tempuri.org/IServiceDetailReservations/insertdetailreservationResponse")]
+        System.Threading.Tasks.Task<bool> insertdetailreservationAsync(WCFServicesTest.DetailReservationsWS.detailreservation objdetail);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservation/updatedetailreservation", ReplyAction="http://tempuri.org/IServiceDetailReservation/updatedetailreservationResponse")]
-        bool updatedetailreservation(WCFServicesTest.DetailReservationWS.detailreservation objdetail);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservations/updatedetailreservation", ReplyAction="http://tempuri.org/IServiceDetailReservations/updatedetailreservationResponse")]
+        bool updatedetailreservation(WCFServicesTest.DetailReservationsWS.detailreservation objdetail);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservation/updatedetailreservation", ReplyAction="http://tempuri.org/IServiceDetailReservation/updatedetailreservationResponse")]
-        System.Threading.Tasks.Task<bool> updatedetailreservationAsync(WCFServicesTest.DetailReservationWS.detailreservation objdetail);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservations/updatedetailreservation", ReplyAction="http://tempuri.org/IServiceDetailReservations/updatedetailreservationResponse")]
+        System.Threading.Tasks.Task<bool> updatedetailreservationAsync(WCFServicesTest.DetailReservationsWS.detailreservation objdetail);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservation/deletedetailreservation", ReplyAction="http://tempuri.org/IServiceDetailReservation/deletedetailreservationResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservations/deletedetailreservation", ReplyAction="http://tempuri.org/IServiceDetailReservations/deletedetailreservationResponse")]
         bool deletedetailreservation(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservation/deletedetailreservation", ReplyAction="http://tempuri.org/IServiceDetailReservation/deletedetailreservationResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservations/deletedetailreservation", ReplyAction="http://tempuri.org/IServiceDetailReservations/deletedetailreservationResponse")]
         System.Threading.Tasks.Task<bool> deletedetailreservationAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservation/getdetailreservationById", ReplyAction="http://tempuri.org/IServiceDetailReservation/getdetailreservationByIdResponse")]
-        WCFServicesTest.DetailReservationWS.detailreservation getdetailreservationById(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservations/getdetailreservationById", ReplyAction="http://tempuri.org/IServiceDetailReservations/getdetailreservationByIdResponse")]
+        WCFServicesTest.DetailReservationsWS.detailreservation getdetailreservationById(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservation/getdetailreservationById", ReplyAction="http://tempuri.org/IServiceDetailReservation/getdetailreservationByIdResponse")]
-        System.Threading.Tasks.Task<WCFServicesTest.DetailReservationWS.detailreservation> getdetailreservationByIdAsync(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceDetailReservations/getdetailreservationById", ReplyAction="http://tempuri.org/IServiceDetailReservations/getdetailreservationByIdResponse")]
+        System.Threading.Tasks.Task<WCFServicesTest.DetailReservationsWS.detailreservation> getdetailreservationByIdAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServiceDetailReservationChannel : WCFServicesTest.DetailReservationWS.IServiceDetailReservation, System.ServiceModel.IClientChannel {
+    public interface IServiceDetailReservationsChannel : WCFServicesTest.DetailReservationsWS.IServiceDetailReservations, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServiceDetailReservationClient : System.ServiceModel.ClientBase<WCFServicesTest.DetailReservationWS.IServiceDetailReservation>, WCFServicesTest.DetailReservationWS.IServiceDetailReservation {
+    public partial class ServiceDetailReservationsClient : System.ServiceModel.ClientBase<WCFServicesTest.DetailReservationsWS.IServiceDetailReservations>, WCFServicesTest.DetailReservationsWS.IServiceDetailReservations {
         
-        public ServiceDetailReservationClient() {
+        public ServiceDetailReservationsClient() {
         }
         
-        public ServiceDetailReservationClient(string endpointConfigurationName) : 
+        public ServiceDetailReservationsClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public ServiceDetailReservationClient(string endpointConfigurationName, string remoteAddress) : 
+        public ServiceDetailReservationsClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceDetailReservationClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServiceDetailReservationsClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceDetailReservationClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServiceDetailReservationsClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public WCFServicesTest.DetailReservationWS.detailreservation[] getdetailreservation() {
-            return base.Channel.getdetailreservation();
+        public WCFServicesTest.DetailReservationsWS.detailreservation[] getdetailreservations() {
+            return base.Channel.getdetailreservations();
         }
         
-        public System.Threading.Tasks.Task<WCFServicesTest.DetailReservationWS.detailreservation[]> getdetailreservationAsync() {
-            return base.Channel.getdetailreservationAsync();
+        public System.Threading.Tasks.Task<WCFServicesTest.DetailReservationsWS.detailreservation[]> getdetailreservationsAsync() {
+            return base.Channel.getdetailreservationsAsync();
         }
         
-        public bool insertdetailreservation(WCFServicesTest.DetailReservationWS.detailreservation objdetail) {
+        public bool insertdetailreservation(WCFServicesTest.DetailReservationsWS.detailreservation objdetail) {
             return base.Channel.insertdetailreservation(objdetail);
         }
         
-        public System.Threading.Tasks.Task<bool> insertdetailreservationAsync(WCFServicesTest.DetailReservationWS.detailreservation objdetail) {
+        public System.Threading.Tasks.Task<bool> insertdetailreservationAsync(WCFServicesTest.DetailReservationsWS.detailreservation objdetail) {
             return base.Channel.insertdetailreservationAsync(objdetail);
         }
         
-        public bool updatedetailreservation(WCFServicesTest.DetailReservationWS.detailreservation objdetail) {
+        public bool updatedetailreservation(WCFServicesTest.DetailReservationsWS.detailreservation objdetail) {
             return base.Channel.updatedetailreservation(objdetail);
         }
         
-        public System.Threading.Tasks.Task<bool> updatedetailreservationAsync(WCFServicesTest.DetailReservationWS.detailreservation objdetail) {
+        public System.Threading.Tasks.Task<bool> updatedetailreservationAsync(WCFServicesTest.DetailReservationsWS.detailreservation objdetail) {
             return base.Channel.updatedetailreservationAsync(objdetail);
         }
         
@@ -280,11 +280,11 @@ namespace WCFServicesTest.DetailReservationWS {
             return base.Channel.deletedetailreservationAsync(id);
         }
         
-        public WCFServicesTest.DetailReservationWS.detailreservation getdetailreservationById(int id) {
+        public WCFServicesTest.DetailReservationsWS.detailreservation getdetailreservationById(int id) {
             return base.Channel.getdetailreservationById(id);
         }
         
-        public System.Threading.Tasks.Task<WCFServicesTest.DetailReservationWS.detailreservation> getdetailreservationByIdAsync(int id) {
+        public System.Threading.Tasks.Task<WCFServicesTest.DetailReservationsWS.detailreservation> getdetailreservationByIdAsync(int id) {
             return base.Channel.getdetailreservationByIdAsync(id);
         }
     }

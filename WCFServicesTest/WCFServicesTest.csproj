@@ -60,7 +60,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\DetailReservationWS\Reference.cs">
+    <Compile Include="Service References\DetailReservationsWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -75,7 +75,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ReservationWS\Reference.cs">
+    <Compile Include="Service References\ReservationsWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -111,23 +111,23 @@
     <None Include="Service References\CustomersWS\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CustomersWS\WCFServicesTest.CustomersWS.customers.datasource">
+    <None Include="Service References\CustomersWS\WCFServicesTest.CustomersWS.customer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CustomersWS\wcf_fullcarwash.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DetailReservationWS\service.wsdl" />
-    <None Include="Service References\DetailReservationWS\service.xsd">
+    <None Include="Service References\DetailReservationsWS\service.wsdl" />
+    <None Include="Service References\DetailReservationsWS\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DetailReservationWS\service1.xsd">
+    <None Include="Service References\DetailReservationsWS\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DetailReservationWS\WCFServicesTest.DetailReservationWS.detailreservation.datasource">
+    <None Include="Service References\DetailReservationsWS\WCFServicesTest.DetailReservationsWS.detailreservation.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\DetailReservationWS\wcf_fullcarwash.xsd">
+    <None Include="Service References\DetailReservationsWS\wcf_fullcarwash.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\EmployeesWS\service.wsdl" />
@@ -137,7 +137,7 @@
     <None Include="Service References\EmployeesWS\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EmployeesWS\WCFServicesTest.EmployeesWS.employees.datasource">
+    <None Include="Service References\EmployeesWS\WCFServicesTest.EmployeesWS.employee.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\EmployeesWS\wcf_fullcarwash.xsd">
@@ -150,23 +150,23 @@
     <None Include="Service References\LocalsWS\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\LocalsWS\WCFServicesTest.LocalsWS.locals.datasource">
+    <None Include="Service References\LocalsWS\WCFServicesTest.LocalsWS.local.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\LocalsWS\wcf_fullcarwash.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ReservationWS\service.wsdl" />
-    <None Include="Service References\ReservationWS\service.xsd">
+    <None Include="Service References\ReservationsWS\service.wsdl" />
+    <None Include="Service References\ReservationsWS\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ReservationWS\service1.xsd">
+    <None Include="Service References\ReservationsWS\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ReservationWS\WCFServicesTest.ReservationWS.reservations.datasource">
+    <None Include="Service References\ReservationsWS\WCFServicesTest.ReservationsWS.reservation.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ReservationWS\wcf_fullcarwash.xsd">
+    <None Include="Service References\ReservationsWS\wcf_fullcarwash.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServicesWS\service.wsdl" />
@@ -189,7 +189,7 @@
     <None Include="Service References\TypeCarsWS\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\TypeCarsWS\WCFServicesTest.TypeCarsWS.typecars.datasource">
+    <None Include="Service References\TypeCarsWS\WCFServicesTest.TypeCarsWS.typecar.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\TypeCarsWS\wcf_fullcarwash.xsd">
@@ -198,10 +198,10 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\CustomersWS\" />
-    <WCFMetadataStorage Include="Service References\DetailReservationWS\" />
+    <WCFMetadataStorage Include="Service References\DetailReservationsWS\" />
     <WCFMetadataStorage Include="Service References\EmployeesWS\" />
     <WCFMetadataStorage Include="Service References\LocalsWS\" />
-    <WCFMetadataStorage Include="Service References\ReservationWS\" />
+    <WCFMetadataStorage Include="Service References\ReservationsWS\" />
     <WCFMetadataStorage Include="Service References\ServicesWS\" />
     <WCFMetadataStorage Include="Service References\TypeCarsWS\" />
   </ItemGroup>
@@ -213,6 +213,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\CustomersWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DetailReservationsWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DetailReservationsWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DetailReservationsWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -242,13 +254,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\TypeCarsWS\configuration91.svcinfo" />
+    <None Include="Service References\ReservationsWS\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\TypeCarsWS\configuration.svcinfo" />
+    <None Include="Service References\ReservationsWS\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\TypeCarsWS\Reference.svcmap">
+    <None Include="Service References\ReservationsWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -266,25 +278,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ReservationWS\configuration91.svcinfo" />
+    <None Include="Service References\TypeCarsWS\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ReservationWS\configuration.svcinfo" />
+    <None Include="Service References\TypeCarsWS\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ReservationWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\DetailReservationWS\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\DetailReservationWS\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\DetailReservationWS\Reference.svcmap">
+    <None Include="Service References\TypeCarsWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

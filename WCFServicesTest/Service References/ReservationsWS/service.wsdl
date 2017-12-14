@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceReservations" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceReservations_getreservations_InputMessage">
+    <wsdl:part name="parameters" element="tns:getreservations" />
+  </wsdl:message>
+  <wsdl:message name="IServiceReservations_getreservations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getreservationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceReservations_insertreservation_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertreservation" />
+  </wsdl:message>
+  <wsdl:message name="IServiceReservations_insertreservation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertreservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceReservations_updatereservation_InputMessage">
+    <wsdl:part name="parameters" element="tns:updatereservation" />
+  </wsdl:message>
+  <wsdl:message name="IServiceReservations_updatereservation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updatereservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceReservations_deletereservation_InputMessage">
+    <wsdl:part name="parameters" element="tns:deletereservation" />
+  </wsdl:message>
+  <wsdl:message name="IServiceReservations_deletereservation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deletereservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceReservations_getreservationById_InputMessage">
+    <wsdl:part name="parameters" element="tns:getreservationById" />
+  </wsdl:message>
+  <wsdl:message name="IServiceReservations_getreservationById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getreservationByIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceReservations">
+    <wsdl:operation name="getreservations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceReservations/getreservations" message="tns:IServiceReservations_getreservations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceReservations/getreservationsResponse" message="tns:IServiceReservations_getreservations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertreservation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceReservations/insertreservation" message="tns:IServiceReservations_insertreservation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceReservations/insertreservationResponse" message="tns:IServiceReservations_insertreservation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updatereservation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceReservations/updatereservation" message="tns:IServiceReservations_updatereservation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceReservations/updatereservationResponse" message="tns:IServiceReservations_updatereservation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deletereservation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceReservations/deletereservation" message="tns:IServiceReservations_deletereservation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceReservations/deletereservationResponse" message="tns:IServiceReservations_deletereservation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getreservationById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceReservations/getreservationById" message="tns:IServiceReservations_getreservationById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceReservations/getreservationByIdResponse" message="tns:IServiceReservations_getreservationById_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceReservations" type="tns:IServiceReservations">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getreservations">
+      <soap:operation soapAction="http://tempuri.org/IServiceReservations/getreservations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertreservation">
+      <soap:operation soapAction="http://tempuri.org/IServiceReservations/insertreservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatereservation">
+      <soap:operation soapAction="http://tempuri.org/IServiceReservations/updatereservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletereservation">
+      <soap:operation soapAction="http://tempuri.org/IServiceReservations/deletereservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getreservationById">
+      <soap:operation soapAction="http://tempuri.org/IServiceReservations/getreservationById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceReservations">
+    <wsdl:port name="BasicHttpBinding_IServiceReservations" binding="tns:BasicHttpBinding_IServiceReservations">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/wcf_fullcarwash/ServiceReservations/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

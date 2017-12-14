@@ -8,6 +8,7 @@
   <xs:element name="ArrayOfdetailreservation" nillable="true" type="tns:ArrayOfdetailreservation" />
   <xs:complexType name="detailreservation">
     <xs:sequence>
+      <xs:element minOccurs="0" name="carRegistration" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="fullpayment" type="xs:double" />
       <xs:element minOccurs="0" name="id" type="xs:int" />
       <xs:element minOccurs="0" name="idcar" type="xs:int" />
@@ -16,7 +17,6 @@
       <xs:element minOccurs="0" name="nameService" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="priceservice" type="xs:double" />
       <xs:element minOccurs="0" name="pricetypecar" type="xs:double" />
-      <xs:element minOccurs="0" name="typecar" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="detailreservation" nillable="true" type="tns:detailreservation" />

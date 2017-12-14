@@ -15,9 +15,9 @@ namespace WCFServicesTest.LocalsWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="locals", Namespace="http://schemas.datacontract.org/2004/07/wcf_fullcarwash")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="local", Namespace="http://schemas.datacontract.org/2004/07/wcf_fullcarwash")]
     [System.SerializableAttribute()]
-    public partial class locals : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class local : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -107,88 +107,88 @@ namespace WCFServicesTest.LocalsWS {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LocalsWS.IServiceLocal")]
-    public interface IServiceLocal {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LocalsWS.IServiceLocals")]
+    public interface IServiceLocals {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocal/getlocals", ReplyAction="http://tempuri.org/IServiceLocal/getlocalsResponse")]
-        WCFServicesTest.LocalsWS.locals[] getlocals();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocals/getlocals", ReplyAction="http://tempuri.org/IServiceLocals/getlocalsResponse")]
+        WCFServicesTest.LocalsWS.local[] getlocals();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocal/getlocals", ReplyAction="http://tempuri.org/IServiceLocal/getlocalsResponse")]
-        System.Threading.Tasks.Task<WCFServicesTest.LocalsWS.locals[]> getlocalsAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocals/getlocals", ReplyAction="http://tempuri.org/IServiceLocals/getlocalsResponse")]
+        System.Threading.Tasks.Task<WCFServicesTest.LocalsWS.local[]> getlocalsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocal/insertlocal", ReplyAction="http://tempuri.org/IServiceLocal/insertlocalResponse")]
-        bool insertlocal(WCFServicesTest.LocalsWS.locals objloc);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocals/insertlocal", ReplyAction="http://tempuri.org/IServiceLocals/insertlocalResponse")]
+        bool insertlocal(WCFServicesTest.LocalsWS.local objloc);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocal/insertlocal", ReplyAction="http://tempuri.org/IServiceLocal/insertlocalResponse")]
-        System.Threading.Tasks.Task<bool> insertlocalAsync(WCFServicesTest.LocalsWS.locals objloc);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocals/insertlocal", ReplyAction="http://tempuri.org/IServiceLocals/insertlocalResponse")]
+        System.Threading.Tasks.Task<bool> insertlocalAsync(WCFServicesTest.LocalsWS.local objloc);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocal/updatelocal", ReplyAction="http://tempuri.org/IServiceLocal/updatelocalResponse")]
-        bool updatelocal(WCFServicesTest.LocalsWS.locals objlocal);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocals/updatelocal", ReplyAction="http://tempuri.org/IServiceLocals/updatelocalResponse")]
+        bool updatelocal(WCFServicesTest.LocalsWS.local objlocal);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocal/updatelocal", ReplyAction="http://tempuri.org/IServiceLocal/updatelocalResponse")]
-        System.Threading.Tasks.Task<bool> updatelocalAsync(WCFServicesTest.LocalsWS.locals objlocal);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocals/updatelocal", ReplyAction="http://tempuri.org/IServiceLocals/updatelocalResponse")]
+        System.Threading.Tasks.Task<bool> updatelocalAsync(WCFServicesTest.LocalsWS.local objlocal);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocal/deletelocal", ReplyAction="http://tempuri.org/IServiceLocal/deletelocalResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocals/deletelocal", ReplyAction="http://tempuri.org/IServiceLocals/deletelocalResponse")]
         bool deletelocal(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocal/deletelocal", ReplyAction="http://tempuri.org/IServiceLocal/deletelocalResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocals/deletelocal", ReplyAction="http://tempuri.org/IServiceLocals/deletelocalResponse")]
         System.Threading.Tasks.Task<bool> deletelocalAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocal/getlocalById", ReplyAction="http://tempuri.org/IServiceLocal/getlocalByIdResponse")]
-        WCFServicesTest.LocalsWS.locals getlocalById(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocals/getlocalById", ReplyAction="http://tempuri.org/IServiceLocals/getlocalByIdResponse")]
+        WCFServicesTest.LocalsWS.local getlocalById(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocal/getlocalById", ReplyAction="http://tempuri.org/IServiceLocal/getlocalByIdResponse")]
-        System.Threading.Tasks.Task<WCFServicesTest.LocalsWS.locals> getlocalByIdAsync(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLocals/getlocalById", ReplyAction="http://tempuri.org/IServiceLocals/getlocalByIdResponse")]
+        System.Threading.Tasks.Task<WCFServicesTest.LocalsWS.local> getlocalByIdAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServiceLocalChannel : WCFServicesTest.LocalsWS.IServiceLocal, System.ServiceModel.IClientChannel {
+    public interface IServiceLocalsChannel : WCFServicesTest.LocalsWS.IServiceLocals, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServiceLocalClient : System.ServiceModel.ClientBase<WCFServicesTest.LocalsWS.IServiceLocal>, WCFServicesTest.LocalsWS.IServiceLocal {
+    public partial class ServiceLocalsClient : System.ServiceModel.ClientBase<WCFServicesTest.LocalsWS.IServiceLocals>, WCFServicesTest.LocalsWS.IServiceLocals {
         
-        public ServiceLocalClient() {
+        public ServiceLocalsClient() {
         }
         
-        public ServiceLocalClient(string endpointConfigurationName) : 
+        public ServiceLocalsClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public ServiceLocalClient(string endpointConfigurationName, string remoteAddress) : 
+        public ServiceLocalsClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceLocalClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServiceLocalsClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceLocalClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServiceLocalsClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public WCFServicesTest.LocalsWS.locals[] getlocals() {
+        public WCFServicesTest.LocalsWS.local[] getlocals() {
             return base.Channel.getlocals();
         }
         
-        public System.Threading.Tasks.Task<WCFServicesTest.LocalsWS.locals[]> getlocalsAsync() {
+        public System.Threading.Tasks.Task<WCFServicesTest.LocalsWS.local[]> getlocalsAsync() {
             return base.Channel.getlocalsAsync();
         }
         
-        public bool insertlocal(WCFServicesTest.LocalsWS.locals objloc) {
+        public bool insertlocal(WCFServicesTest.LocalsWS.local objloc) {
             return base.Channel.insertlocal(objloc);
         }
         
-        public System.Threading.Tasks.Task<bool> insertlocalAsync(WCFServicesTest.LocalsWS.locals objloc) {
+        public System.Threading.Tasks.Task<bool> insertlocalAsync(WCFServicesTest.LocalsWS.local objloc) {
             return base.Channel.insertlocalAsync(objloc);
         }
         
-        public bool updatelocal(WCFServicesTest.LocalsWS.locals objlocal) {
+        public bool updatelocal(WCFServicesTest.LocalsWS.local objlocal) {
             return base.Channel.updatelocal(objlocal);
         }
         
-        public System.Threading.Tasks.Task<bool> updatelocalAsync(WCFServicesTest.LocalsWS.locals objlocal) {
+        public System.Threading.Tasks.Task<bool> updatelocalAsync(WCFServicesTest.LocalsWS.local objlocal) {
             return base.Channel.updatelocalAsync(objlocal);
         }
         
@@ -200,11 +200,11 @@ namespace WCFServicesTest.LocalsWS {
             return base.Channel.deletelocalAsync(id);
         }
         
-        public WCFServicesTest.LocalsWS.locals getlocalById(int id) {
+        public WCFServicesTest.LocalsWS.local getlocalById(int id) {
             return base.Channel.getlocalById(id);
         }
         
-        public System.Threading.Tasks.Task<WCFServicesTest.LocalsWS.locals> getlocalByIdAsync(int id) {
+        public System.Threading.Tasks.Task<WCFServicesTest.LocalsWS.local> getlocalByIdAsync(int id) {
             return base.Channel.getlocalByIdAsync(id);
         }
     }

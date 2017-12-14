@@ -15,9 +15,9 @@ namespace WCFServicesTest.EmployeesWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="employees", Namespace="http://schemas.datacontract.org/2004/07/wcf_fullcarwash")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="employee", Namespace="http://schemas.datacontract.org/2004/07/wcf_fullcarwash")]
     [System.SerializableAttribute()]
-    public partial class employees : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class employee : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -175,22 +175,22 @@ namespace WCFServicesTest.EmployeesWS {
     public interface IServiceEmployees {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceEmployees/getemployees", ReplyAction="http://tempuri.org/IServiceEmployees/getemployeesResponse")]
-        WCFServicesTest.EmployeesWS.employees[] getemployees();
+        WCFServicesTest.EmployeesWS.employee[] getemployees();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceEmployees/getemployees", ReplyAction="http://tempuri.org/IServiceEmployees/getemployeesResponse")]
-        System.Threading.Tasks.Task<WCFServicesTest.EmployeesWS.employees[]> getemployeesAsync();
+        System.Threading.Tasks.Task<WCFServicesTest.EmployeesWS.employee[]> getemployeesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceEmployees/insertemployee", ReplyAction="http://tempuri.org/IServiceEmployees/insertemployeeResponse")]
-        bool insertemployee(WCFServicesTest.EmployeesWS.employees objemp);
+        bool insertemployee(WCFServicesTest.EmployeesWS.employee objemp);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceEmployees/insertemployee", ReplyAction="http://tempuri.org/IServiceEmployees/insertemployeeResponse")]
-        System.Threading.Tasks.Task<bool> insertemployeeAsync(WCFServicesTest.EmployeesWS.employees objemp);
+        System.Threading.Tasks.Task<bool> insertemployeeAsync(WCFServicesTest.EmployeesWS.employee objemp);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceEmployees/updateemployee", ReplyAction="http://tempuri.org/IServiceEmployees/updateemployeeResponse")]
-        bool updateemployee(WCFServicesTest.EmployeesWS.employees objem);
+        bool updateemployee(WCFServicesTest.EmployeesWS.employee objem);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceEmployees/updateemployee", ReplyAction="http://tempuri.org/IServiceEmployees/updateemployeeResponse")]
-        System.Threading.Tasks.Task<bool> updateemployeeAsync(WCFServicesTest.EmployeesWS.employees objem);
+        System.Threading.Tasks.Task<bool> updateemployeeAsync(WCFServicesTest.EmployeesWS.employee objem);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceEmployees/deleteemployee", ReplyAction="http://tempuri.org/IServiceEmployees/deleteemployeeResponse")]
         bool deleteemployee(int id);
@@ -199,16 +199,16 @@ namespace WCFServicesTest.EmployeesWS {
         System.Threading.Tasks.Task<bool> deleteemployeeAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceEmployees/getemployeeById", ReplyAction="http://tempuri.org/IServiceEmployees/getemployeeByIdResponse")]
-        WCFServicesTest.EmployeesWS.employees getemployeeById(int id);
+        WCFServicesTest.EmployeesWS.employee getemployeeById(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceEmployees/getemployeeById", ReplyAction="http://tempuri.org/IServiceEmployees/getemployeeByIdResponse")]
-        System.Threading.Tasks.Task<WCFServicesTest.EmployeesWS.employees> getemployeeByIdAsync(int id);
+        System.Threading.Tasks.Task<WCFServicesTest.EmployeesWS.employee> getemployeeByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceEmployees/getemployeeLogin", ReplyAction="http://tempuri.org/IServiceEmployees/getemployeeLoginResponse")]
-        WCFServicesTest.EmployeesWS.employees getemployeeLogin(string email, string password);
+        WCFServicesTest.EmployeesWS.employee getemployeeLogin(string email, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceEmployees/getemployeeLogin", ReplyAction="http://tempuri.org/IServiceEmployees/getemployeeLoginResponse")]
-        System.Threading.Tasks.Task<WCFServicesTest.EmployeesWS.employees> getemployeeLoginAsync(string email, string password);
+        System.Threading.Tasks.Task<WCFServicesTest.EmployeesWS.employee> getemployeeLoginAsync(string email, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -238,27 +238,27 @@ namespace WCFServicesTest.EmployeesWS {
                 base(binding, remoteAddress) {
         }
         
-        public WCFServicesTest.EmployeesWS.employees[] getemployees() {
+        public WCFServicesTest.EmployeesWS.employee[] getemployees() {
             return base.Channel.getemployees();
         }
         
-        public System.Threading.Tasks.Task<WCFServicesTest.EmployeesWS.employees[]> getemployeesAsync() {
+        public System.Threading.Tasks.Task<WCFServicesTest.EmployeesWS.employee[]> getemployeesAsync() {
             return base.Channel.getemployeesAsync();
         }
         
-        public bool insertemployee(WCFServicesTest.EmployeesWS.employees objemp) {
+        public bool insertemployee(WCFServicesTest.EmployeesWS.employee objemp) {
             return base.Channel.insertemployee(objemp);
         }
         
-        public System.Threading.Tasks.Task<bool> insertemployeeAsync(WCFServicesTest.EmployeesWS.employees objemp) {
+        public System.Threading.Tasks.Task<bool> insertemployeeAsync(WCFServicesTest.EmployeesWS.employee objemp) {
             return base.Channel.insertemployeeAsync(objemp);
         }
         
-        public bool updateemployee(WCFServicesTest.EmployeesWS.employees objem) {
+        public bool updateemployee(WCFServicesTest.EmployeesWS.employee objem) {
             return base.Channel.updateemployee(objem);
         }
         
-        public System.Threading.Tasks.Task<bool> updateemployeeAsync(WCFServicesTest.EmployeesWS.employees objem) {
+        public System.Threading.Tasks.Task<bool> updateemployeeAsync(WCFServicesTest.EmployeesWS.employee objem) {
             return base.Channel.updateemployeeAsync(objem);
         }
         
@@ -270,19 +270,19 @@ namespace WCFServicesTest.EmployeesWS {
             return base.Channel.deleteemployeeAsync(id);
         }
         
-        public WCFServicesTest.EmployeesWS.employees getemployeeById(int id) {
+        public WCFServicesTest.EmployeesWS.employee getemployeeById(int id) {
             return base.Channel.getemployeeById(id);
         }
         
-        public System.Threading.Tasks.Task<WCFServicesTest.EmployeesWS.employees> getemployeeByIdAsync(int id) {
+        public System.Threading.Tasks.Task<WCFServicesTest.EmployeesWS.employee> getemployeeByIdAsync(int id) {
             return base.Channel.getemployeeByIdAsync(id);
         }
         
-        public WCFServicesTest.EmployeesWS.employees getemployeeLogin(string email, string password) {
+        public WCFServicesTest.EmployeesWS.employee getemployeeLogin(string email, string password) {
             return base.Channel.getemployeeLogin(email, password);
         }
         
-        public System.Threading.Tasks.Task<WCFServicesTest.EmployeesWS.employees> getemployeeLoginAsync(string email, string password) {
+        public System.Threading.Tasks.Task<WCFServicesTest.EmployeesWS.employee> getemployeeLoginAsync(string email, string password) {
             return base.Channel.getemployeeLoginAsync(email, password);
         }
     }

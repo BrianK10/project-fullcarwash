@@ -12,28 +12,28 @@ namespace wcf_fullcarwash
     public interface IServiceEmployees
     {
         [OperationContract]
-        List<employees> getemployees();
+        List<employee> getemployees();
         
         [OperationContract]
-        bool insertemployee(employees objemp);
+        bool insertemployee(employee objemp);
 
         [OperationContract]
-        bool updateemployee(employees objem);
+        bool updateemployee(employee objem);
 
         [OperationContract]
         bool deleteemployee(int id);
 
         [OperationContract]
-        employees getemployeeById(int id);
+        employee getemployeeById(int id);
 
         [OperationContract]
-        employees getemployeeLogin(string email, string password);
+        employee getemployeeLogin(string email, string password);
     }
 
     [DataContract]
     [Serializable]
 
-    public class employees
+    public class employee
     {
         private int _id;
 

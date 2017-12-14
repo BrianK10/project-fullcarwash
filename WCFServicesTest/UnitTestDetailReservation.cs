@@ -10,80 +10,87 @@ namespace WCFServicesTest
         [TestMethod]
         public void Test1GetDetailReservations()
         {
-            DetailReservationWS.ServiceDetailReservationClient proxy = new DetailReservationWS.ServiceDetailReservationClient();
-            List<DetailReservationWS.detailreservation> detailreservationsObt = new List<DetailReservationWS.detailreservation>(proxy.getdetailreservation());
+            DetailReservationsWS.ServiceDetailReservationsClient proxy = new DetailReservationsWS.ServiceDetailReservationsClient();
+            List<DetailReservationsWS.detailreservation> detailreservationsObt = new List<DetailReservationsWS.detailreservation>(proxy.getdetailreservations());
             //se ingresa el numero de DetailReservations que hay en la db
-            Assert.AreEqual(4, detailreservationsObt.Count);
+            Assert.AreEqual(1, detailreservationsObt.Count);
         }
 
         [TestMethod]
         public void Test2InsertDetailReservation()
         {
-            DetailReservationWS.ServiceDetailReservationClient proxy = new DetailReservationWS.ServiceDetailReservationClient();
-            DetailReservationWS.detailreservation detailreservationCre = new DetailReservationWS.detailreservation();
-            detailreservationCre.idreservation = 1;
+            DetailReservationsWS.ServiceDetailReservationsClient proxy = new DetailReservationsWS.ServiceDetailReservationsClient();
+            DetailReservationsWS.detailreservation detailreservationCre = new DetailReservationsWS.detailreservation();
+            //debe haber minimo 1 reservacion, servicio y tipo de carro en la bd
+            detailreservationCre.idreservation = 5;
             detailreservationCre.idservice = 1;
             detailreservationCre.idcar = 1;
             detailreservationCre.priceservice = 28;
             detailreservationCre.pricetypecar = 15;
             detailreservationCre.fullpayment = 43;
+            detailreservationCre.carRegistration = "74-rtf";
             proxy.insertdetailreservation(detailreservationCre).Equals(true);
 
-            Assert.AreEqual(1, detailreservationCre.idreservation);
+            Assert.AreEqual(5, detailreservationCre.idreservation);
             Assert.AreEqual(1, detailreservationCre.idservice);
             Assert.AreEqual(1, detailreservationCre.idcar);
             Assert.AreEqual(28, detailreservationCre.priceservice);
             Assert.AreEqual(15, detailreservationCre.pricetypecar);
             Assert.AreEqual(43, detailreservationCre.fullpayment);
+            Assert.AreEqual("74-rtf", detailreservationCre.carRegistration);
         }
 
         [TestMethod]
         public void Test3UpdateDetailReservation()
         {
-            DetailReservationWS.ServiceDetailReservationClient proxy = new DetailReservationWS.ServiceDetailReservationClient();
-            DetailReservationWS.detailreservation detailreservationUpd = new DetailReservationWS.detailreservation();
+            DetailReservationsWS.ServiceDetailReservationsClient proxy = new DetailReservationsWS.ServiceDetailReservationsClient();
+            DetailReservationsWS.detailreservation detailreservationUpd = new DetailReservationsWS.detailreservation();
             //se ingresa el id del DetailReservation de prueba
-            detailreservationUpd.id = 5;
-            detailreservationUpd.idreservation = 1;
+            detailreservationUpd.id = 1;
+            detailreservationUpd.idreservation = 5;
             detailreservationUpd.idservice = 1;
             detailreservationUpd.idcar = 1;
             detailreservationUpd.priceservice = 20;
             detailreservationUpd.pricetypecar = 15;
             detailreservationUpd.fullpayment = 35;
+            detailreservationUpd.carRegistration = "74-rtf MODIFICADO";
             proxy.updatedetailreservation(detailreservationUpd).Equals(true);
 
-            Assert.AreEqual(1, detailreservationUpd.idreservation);
+            Assert.AreEqual(5, detailreservationUpd.idreservation);
             Assert.AreEqual(1, detailreservationUpd.idservice);
             Assert.AreEqual(1, detailreservationUpd.idcar);
             Assert.AreEqual(20, detailreservationUpd.priceservice);
             Assert.AreEqual(15, detailreservationUpd.pricetypecar);
             Assert.AreEqual(35, detailreservationUpd.fullpayment);
+            Assert.AreEqual("74-rtf MODIFICADO", detailreservationUpd.carRegistration);
         }
 
         [TestMethod]
         public void Test4GetDetailReservationById()
         {
-            DetailReservationWS.ServiceDetailReservationClient proxy = new DetailReservationWS.ServiceDetailReservationClient();
+            DetailReservationsWS.ServiceDetailReservationsClient proxy = new DetailReservationsWS.ServiceDetailReservationsClient();
             //se ingresa el id del DetailReservation de prueba
-            DetailReservationWS.detailreservation detailreservationObt = proxy.getdetailreservationById(5);
+            DetailReservationsWS.detailreservation detailreservationObt = proxy.getdetailreservationById(1);
 
-            Assert.AreEqual(1, detailreservationObt.idreservation);
+            Assert.AreEqual(5, detailreservationObt.idreservation);
             Assert.AreEqual(1, detailreservationObt.idservice);
             Assert.AreEqual(1, detailreservationObt.idcar);
             Assert.AreEqual(20, detailreservationObt.priceservice);
             Assert.AreEqual(15, detailreservationObt.pricetypecar);
             Assert.AreEqual(35, detailreservationObt.fullpayment);
+            Assert.AreEqual("74-rtf MODIFICADO", detailreservationObt.carRegistration);
         }
 
         [TestMethod]
         public void Test5DeleteDetailReservation()
         {
-            DetailReservationWS.ServiceDetailReservationClient proxy = new DetailReservationWS.ServiceDetailReservationClient();
+            DetailReservationsWS.ServiceDetailReservationsClient proxy = new DetailReservationsWS.ServiceDetailReservationsClient();
             //se ingresa el id del DetailReservation de prueba
-            DetailReservationWS.detailreservation detailreservationDel = proxy.getdetailreservationById(5);
-            proxy.deletedetailreservation(5).Equals(true);
+            DetailReservationsWS.detailreservation detailreservationDel = proxy.getdetailreservationById(1);
+            proxy.deletedetailreservation(1).Equals(true);
 
-            Assert.IsNull(detailreservationDel);
+            //Assert.IsNull(detailreservationDel);
+            Assert.AreEqual(1, detailreservationDel.id);
         }
     }
 }

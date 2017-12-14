@@ -9,14 +9,14 @@
   <xs:element name="getlocalsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="getlocalsResult" nillable="true" type="q1:ArrayOflocals" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="getlocalsResult" nillable="true" type="q1:ArrayOflocal" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="insertlocal">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="objloc" nillable="true" type="q2:locals" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="objloc" nillable="true" type="q2:local" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -30,7 +30,7 @@
   <xs:element name="updatelocal">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="objlocal" nillable="true" type="q3:locals" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="objlocal" nillable="true" type="q3:local" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -65,7 +65,7 @@
   <xs:element name="getlocalByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="getlocalByIdResult" nillable="true" type="q4:locals" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="getlocalByIdResult" nillable="true" type="q4:local" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

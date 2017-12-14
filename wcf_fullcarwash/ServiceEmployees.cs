@@ -13,17 +13,17 @@ namespace wcf_fullcarwash
     {
         bool value;
 
-        public List<employees> getemployees()
+        public List<employee> getemployees()
         {
             fullcarwashEntities model = new fullcarwashEntities();
-            List<employees> objlsttypecar = new List<employees>();
+            List<employee> objlsttypecar = new List<employee>();
 
             try
             {
                 var query = model.SP_SELECT_EMPLOYEES();
                 foreach (var result in query)
                 {
-                    employees objemployee = new employees();
+                    employee objemployee = new employee();
 
                     objemployee.id = result.idEmployee;
                     objemployee.firstname = result.firstName;
@@ -45,7 +45,7 @@ namespace wcf_fullcarwash
             return objlsttypecar;
         }
 
-        public bool insertemployee(employees objemp)
+        public bool insertemployee(employee objemp)
         {
             fullcarwashEntities model = new fullcarwashEntities();
 
@@ -74,7 +74,7 @@ namespace wcf_fullcarwash
             return value;
         }
 
-        public bool updateemployee(employees objem)
+        public bool updateemployee(employee objem)
         {
             fullcarwashEntities model = new fullcarwashEntities();
             try
@@ -128,10 +128,10 @@ namespace wcf_fullcarwash
             return value;
         }
 
-        public employees getemployeeById(int id)
+        public employee getemployeeById(int id)
         {
             fullcarwashEntities model = new fullcarwashEntities();
-            employees objemployee = new employees();
+            employee objemployee = new employee();
 
             try
             {
@@ -156,11 +156,11 @@ namespace wcf_fullcarwash
             return objemployee;
         }
 
-        public employees getemployeeLogin(string email, string password)
+        public employee getemployeeLogin(string email, string password)
         {
             
             fullcarwashEntities model = new fullcarwashEntities();
-            employees objemployee = new employees();
+            employee objemployee = new employee();
 
             try
             {

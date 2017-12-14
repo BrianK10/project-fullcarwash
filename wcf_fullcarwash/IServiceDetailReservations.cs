@@ -9,10 +9,10 @@ namespace wcf_fullcarwash
 {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IServiceLocal" en el código y en el archivo de configuración a la vez.
     [ServiceContract]
-    public interface IServiceDetailReservation
+    public interface IServiceDetailReservations
     {
         [OperationContract]
-        List<detailreservation> getdetailreservation();
+        List<detailreservation> getdetailreservations();
         
         [OperationContract]
         bool insertdetailreservation(detailreservation objdetail);
@@ -74,15 +74,6 @@ namespace wcf_fullcarwash
             set { _idCar = value; }
         }
 
-        private string _typecar;
-
-        [DataMember]
-        public string typecar
-        {
-            get { return _typecar; }
-            set { _typecar = value; }
-        }
-
         private double _priceService;
         [DataMember]
         public double priceservice
@@ -106,7 +97,16 @@ namespace wcf_fullcarwash
             get { return _fullPayment; }
             set { _fullPayment = value; }
         }
-       
+
+        private string _carRegistration;
+
+        [DataMember]
+        public string carRegistration
+        {
+            get { return _carRegistration; }
+            set { _carRegistration = value; }
+        }
+
     }
 }
 

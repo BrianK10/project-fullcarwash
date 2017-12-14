@@ -9,10 +9,10 @@ using System.Text;
 namespace wcf_fullcarwash
 {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "ServiceLocal" en el código y en el archivo de configuración a la vez.
-    public class ServiceDetailReservation : IServiceDetailReservation
+    public class ServiceDetailReservations : IServiceDetailReservations
     {
         bool value;
-        public List<detailreservation> getdetailreservation()
+        public List<detailreservation> getdetailreservations()
         {
             fullcarwashEntities model = new fullcarwashEntities();
             List<detailreservation> objlstdetail = new List<detailreservation>();
@@ -26,16 +26,13 @@ namespace wcf_fullcarwash
 
                     objdetail.id = result.idReservation;
                     objdetail.idreservation = result.idReservation;
-                    
                     objdetail.idservice = result.idService;
                     objdetail.nameService = result.nameService;
-
                     objdetail.idcar = result.idCar;
-                    objdetail.typecar = result.typeCar;
-
                     objdetail.priceservice = Convert.ToDouble(result.priceService);
                     objdetail.pricetypecar = Convert.ToDouble(result.priceTypeCar);
                     objdetail.fullpayment = Convert.ToDouble(result.fullPayment);
+                    objdetail.carRegistration = result.carRegistration;
 
 
                     objlstdetail.Add(objdetail);
@@ -63,8 +60,8 @@ namespace wcf_fullcarwash
                 objdet.priceService = Convert.ToDecimal(objdetail.priceservice);
                 objdet.priceTypeCar = Convert.ToDecimal(objdetail.pricetypecar);
                 objdet.fullPayment  = Convert.ToDecimal(objdetail.fullpayment);
-
-
+                objdet.carRegistration = objdetail.carRegistration;
+                
                 model.DetailReservation.Add(objdet);
                 model.SaveChanges();
 
@@ -91,10 +88,10 @@ namespace wcf_fullcarwash
                 objdet.idReservation = objdetail.idreservation;
                 objdet.idService = objdetail.idservice;
                 objdet.idCar = objdetail.idcar;
-
                 objdet.priceService = Convert.ToDecimal(objdetail.priceservice);
                 objdet.priceTypeCar = Convert.ToDecimal(objdetail.pricetypecar);
                 objdet.fullPayment = Convert.ToDecimal(objdetail.fullpayment);
+                objdet.carRegistration = objdetail.carRegistration;
 
                 model.SaveChanges();
                 value = true;
@@ -147,10 +144,10 @@ namespace wcf_fullcarwash
                 objdetail.idreservation = objdet.idReservation;
                 objdetail.idservice = objdet.idService;
                 objdetail.idcar = objdet.idCar;
-
                 objdetail.priceservice = Convert.ToDouble(objdet.priceService);
                 objdetail.pricetypecar = Convert.ToDouble(objdet.priceTypeCar);
                 objdetail.fullpayment = Convert.ToDouble(objdet.fullPayment);
+                objdetail.carRegistration = objdet.carRegistration;
 
             }
             catch (Exception ex)

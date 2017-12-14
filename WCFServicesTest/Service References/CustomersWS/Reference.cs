@@ -15,9 +15,9 @@ namespace WCFServicesTest.CustomersWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="customers", Namespace="http://schemas.datacontract.org/2004/07/wcf_fullcarwash")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="customer", Namespace="http://schemas.datacontract.org/2004/07/wcf_fullcarwash")]
     [System.SerializableAttribute()]
-    public partial class customers : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class customer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -219,94 +219,94 @@ namespace WCFServicesTest.CustomersWS {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CustomersWS.IServiceCustomer")]
-    public interface IServiceCustomer {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CustomersWS.IServiceCustomers")]
+    public interface IServiceCustomers {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomer/getcustomers", ReplyAction="http://tempuri.org/IServiceCustomer/getcustomersResponse")]
-        WCFServicesTest.CustomersWS.customers[] getcustomers();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomers/getcustomers", ReplyAction="http://tempuri.org/IServiceCustomers/getcustomersResponse")]
+        WCFServicesTest.CustomersWS.customer[] getcustomers();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomer/getcustomers", ReplyAction="http://tempuri.org/IServiceCustomer/getcustomersResponse")]
-        System.Threading.Tasks.Task<WCFServicesTest.CustomersWS.customers[]> getcustomersAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomers/getcustomers", ReplyAction="http://tempuri.org/IServiceCustomers/getcustomersResponse")]
+        System.Threading.Tasks.Task<WCFServicesTest.CustomersWS.customer[]> getcustomersAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomer/insertcustomer", ReplyAction="http://tempuri.org/IServiceCustomer/insertcustomerResponse")]
-        bool insertcustomer(WCFServicesTest.CustomersWS.customers objcustomer);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomers/insertcustomer", ReplyAction="http://tempuri.org/IServiceCustomers/insertcustomerResponse")]
+        bool insertcustomer(WCFServicesTest.CustomersWS.customer objcustomer);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomer/insertcustomer", ReplyAction="http://tempuri.org/IServiceCustomer/insertcustomerResponse")]
-        System.Threading.Tasks.Task<bool> insertcustomerAsync(WCFServicesTest.CustomersWS.customers objcustomer);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomers/insertcustomer", ReplyAction="http://tempuri.org/IServiceCustomers/insertcustomerResponse")]
+        System.Threading.Tasks.Task<bool> insertcustomerAsync(WCFServicesTest.CustomersWS.customer objcustomer);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomer/updatecustomer", ReplyAction="http://tempuri.org/IServiceCustomer/updatecustomerResponse")]
-        bool updatecustomer(WCFServicesTest.CustomersWS.customers objcustomer);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomers/updatecustomer", ReplyAction="http://tempuri.org/IServiceCustomers/updatecustomerResponse")]
+        bool updatecustomer(WCFServicesTest.CustomersWS.customer objcustomer);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomer/updatecustomer", ReplyAction="http://tempuri.org/IServiceCustomer/updatecustomerResponse")]
-        System.Threading.Tasks.Task<bool> updatecustomerAsync(WCFServicesTest.CustomersWS.customers objcustomer);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomers/updatecustomer", ReplyAction="http://tempuri.org/IServiceCustomers/updatecustomerResponse")]
+        System.Threading.Tasks.Task<bool> updatecustomerAsync(WCFServicesTest.CustomersWS.customer objcustomer);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomer/deletecustomer", ReplyAction="http://tempuri.org/IServiceCustomer/deletecustomerResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomers/deletecustomer", ReplyAction="http://tempuri.org/IServiceCustomers/deletecustomerResponse")]
         bool deletecustomer(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomer/deletecustomer", ReplyAction="http://tempuri.org/IServiceCustomer/deletecustomerResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomers/deletecustomer", ReplyAction="http://tempuri.org/IServiceCustomers/deletecustomerResponse")]
         System.Threading.Tasks.Task<bool> deletecustomerAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomer/getcustomerById", ReplyAction="http://tempuri.org/IServiceCustomer/getcustomerByIdResponse")]
-        WCFServicesTest.CustomersWS.customers getcustomerById(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomers/getcustomerById", ReplyAction="http://tempuri.org/IServiceCustomers/getcustomerByIdResponse")]
+        WCFServicesTest.CustomersWS.customer getcustomerById(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomer/getcustomerById", ReplyAction="http://tempuri.org/IServiceCustomer/getcustomerByIdResponse")]
-        System.Threading.Tasks.Task<WCFServicesTest.CustomersWS.customers> getcustomerByIdAsync(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomers/getcustomerById", ReplyAction="http://tempuri.org/IServiceCustomers/getcustomerByIdResponse")]
+        System.Threading.Tasks.Task<WCFServicesTest.CustomersWS.customer> getcustomerByIdAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomer/getcustomerLogin", ReplyAction="http://tempuri.org/IServiceCustomer/getcustomerLoginResponse")]
-        WCFServicesTest.CustomersWS.customers getcustomerLogin(string email, string password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomers/getcustomerLogin", ReplyAction="http://tempuri.org/IServiceCustomers/getcustomerLoginResponse")]
+        WCFServicesTest.CustomersWS.customer getcustomerLogin(string email, string password);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomer/getcustomerLogin", ReplyAction="http://tempuri.org/IServiceCustomer/getcustomerLoginResponse")]
-        System.Threading.Tasks.Task<WCFServicesTest.CustomersWS.customers> getcustomerLoginAsync(string email, string password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceCustomers/getcustomerLogin", ReplyAction="http://tempuri.org/IServiceCustomers/getcustomerLoginResponse")]
+        System.Threading.Tasks.Task<WCFServicesTest.CustomersWS.customer> getcustomerLoginAsync(string email, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServiceCustomerChannel : WCFServicesTest.CustomersWS.IServiceCustomer, System.ServiceModel.IClientChannel {
+    public interface IServiceCustomersChannel : WCFServicesTest.CustomersWS.IServiceCustomers, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServiceCustomerClient : System.ServiceModel.ClientBase<WCFServicesTest.CustomersWS.IServiceCustomer>, WCFServicesTest.CustomersWS.IServiceCustomer {
+    public partial class ServiceCustomersClient : System.ServiceModel.ClientBase<WCFServicesTest.CustomersWS.IServiceCustomers>, WCFServicesTest.CustomersWS.IServiceCustomers {
         
-        public ServiceCustomerClient() {
+        public ServiceCustomersClient() {
         }
         
-        public ServiceCustomerClient(string endpointConfigurationName) : 
+        public ServiceCustomersClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public ServiceCustomerClient(string endpointConfigurationName, string remoteAddress) : 
+        public ServiceCustomersClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceCustomerClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServiceCustomersClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceCustomerClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServiceCustomersClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public WCFServicesTest.CustomersWS.customers[] getcustomers() {
+        public WCFServicesTest.CustomersWS.customer[] getcustomers() {
             return base.Channel.getcustomers();
         }
         
-        public System.Threading.Tasks.Task<WCFServicesTest.CustomersWS.customers[]> getcustomersAsync() {
+        public System.Threading.Tasks.Task<WCFServicesTest.CustomersWS.customer[]> getcustomersAsync() {
             return base.Channel.getcustomersAsync();
         }
         
-        public bool insertcustomer(WCFServicesTest.CustomersWS.customers objcustomer) {
+        public bool insertcustomer(WCFServicesTest.CustomersWS.customer objcustomer) {
             return base.Channel.insertcustomer(objcustomer);
         }
         
-        public System.Threading.Tasks.Task<bool> insertcustomerAsync(WCFServicesTest.CustomersWS.customers objcustomer) {
+        public System.Threading.Tasks.Task<bool> insertcustomerAsync(WCFServicesTest.CustomersWS.customer objcustomer) {
             return base.Channel.insertcustomerAsync(objcustomer);
         }
         
-        public bool updatecustomer(WCFServicesTest.CustomersWS.customers objcustomer) {
+        public bool updatecustomer(WCFServicesTest.CustomersWS.customer objcustomer) {
             return base.Channel.updatecustomer(objcustomer);
         }
         
-        public System.Threading.Tasks.Task<bool> updatecustomerAsync(WCFServicesTest.CustomersWS.customers objcustomer) {
+        public System.Threading.Tasks.Task<bool> updatecustomerAsync(WCFServicesTest.CustomersWS.customer objcustomer) {
             return base.Channel.updatecustomerAsync(objcustomer);
         }
         
@@ -318,19 +318,19 @@ namespace WCFServicesTest.CustomersWS {
             return base.Channel.deletecustomerAsync(id);
         }
         
-        public WCFServicesTest.CustomersWS.customers getcustomerById(int id) {
+        public WCFServicesTest.CustomersWS.customer getcustomerById(int id) {
             return base.Channel.getcustomerById(id);
         }
         
-        public System.Threading.Tasks.Task<WCFServicesTest.CustomersWS.customers> getcustomerByIdAsync(int id) {
+        public System.Threading.Tasks.Task<WCFServicesTest.CustomersWS.customer> getcustomerByIdAsync(int id) {
             return base.Channel.getcustomerByIdAsync(id);
         }
         
-        public WCFServicesTest.CustomersWS.customers getcustomerLogin(string email, string password) {
+        public WCFServicesTest.CustomersWS.customer getcustomerLogin(string email, string password) {
             return base.Channel.getcustomerLogin(email, password);
         }
         
-        public System.Threading.Tasks.Task<WCFServicesTest.CustomersWS.customers> getcustomerLoginAsync(string email, string password) {
+        public System.Threading.Tasks.Task<WCFServicesTest.CustomersWS.customer> getcustomerLoginAsync(string email, string password) {
             return base.Channel.getcustomerLoginAsync(email, password);
         }
     }

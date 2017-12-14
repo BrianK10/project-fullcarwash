@@ -9,21 +9,21 @@ using System.Text;
 namespace wcf_fullcarwash
 {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "ServiceLocal" en el código y en el archivo de configuración a la vez.
-    public class ServiceReservation : IServiceReservation
+    public class ServiceReservations : IServiceReservations
     {
         bool value;
 
-        public List<reservations> getreservation()
+        public List<reservation> getreservations()
         {
             fullcarwashEntities model = new fullcarwashEntities();
-            List<reservations> objlstreservation = new List<reservations>();
+            List<reservation> objlstreservation = new List<reservation>();
 
             try
             {
                 var query = model.SP_SELECT_RESERVATION();
                 foreach (var result in query)
                 {
-                    reservations objreservation = new reservations();
+                    reservation objreservation = new reservation();
 
                     objreservation.id = result.idReservation;
                     
@@ -47,7 +47,7 @@ namespace wcf_fullcarwash
             return objlstreservation;
         }
 
-        public bool insertreservation(reservations objreserv)
+        public bool insertreservation(reservation objreserv)
         {
             fullcarwashEntities model = new fullcarwashEntities();
 
@@ -74,7 +74,7 @@ namespace wcf_fullcarwash
             return value;
         }
 
-        public bool updatereservation(reservations objreserv)
+        public bool updatereservation(reservation objreserv)
         {
             fullcarwashEntities model = new fullcarwashEntities();
             try
@@ -124,10 +124,10 @@ namespace wcf_fullcarwash
             return value;
         }
 
-        public reservations getreservationById(int id)
+        public reservation getreservationById(int id)
         {
             fullcarwashEntities model = new fullcarwashEntities();
-            reservations objreserv = new reservations();
+            reservation objreserv = new reservation();
 
             try
             {

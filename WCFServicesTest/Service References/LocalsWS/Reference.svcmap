@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3451d205-3787-46aa-8b99-f819604ea804" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7b69cd8e-a5ea-485a-aaa6-58193d57c0ef" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/wcf_fullcarwash/ServiceLocal/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/wcf_fullcarwash/ServiceLocals/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="b9ec4c1b-17f6-47eb-bdfa-7503a702bf42" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/wcf_fullcarwash/ServiceLocal/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="21988e77-53df-484c-b4ea-c7082a84e21a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/wcf_fullcarwash/ServiceLocal/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="68148815-d513-4468-aab5-5553e61d523d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/wcf_fullcarwash/ServiceLocal/mex" />
-    <MetadataFile FileName="wcf_fullcarwash.xsd" MetadataType="Schema" ID="323b85b7-7782-439d-8d35-fac4cfa58661" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/wcf_fullcarwash/ServiceLocal/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="a7115973-bc19-46a6-bb25-b38e37a5559f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/wcf_fullcarwash/ServiceLocals/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="1de444bc-f7f0-4186-b9d4-7de6a47362ac" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/wcf_fullcarwash/ServiceLocals/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="70f8811c-58f2-4245-83cc-7f2b27b5227a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/wcf_fullcarwash/ServiceLocals/mex" />
+    <MetadataFile FileName="wcf_fullcarwash.xsd" MetadataType="Schema" ID="a1257596-3872-42d5-92d4-4a4f919d7892" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/wcf_fullcarwash/ServiceLocals/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

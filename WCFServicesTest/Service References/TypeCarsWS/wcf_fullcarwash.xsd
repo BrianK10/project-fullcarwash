@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="ArrayOftypecars">
+  <xs:complexType name="ArrayOftypecar">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="typecars" nillable="true" type="tns:typecars" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="typecar" nillable="true" type="tns:typecar" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOftypecars" nillable="true" type="tns:ArrayOftypecars" />
-  <xs:complexType name="typecars">
+  <xs:element name="ArrayOftypecar" nillable="true" type="tns:ArrayOftypecar" />
+  <xs:complexType name="typecar">
     <xs:sequence>
       <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="nametypecar" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="price" type="xs:double" />
-      <xs:element minOccurs="0" name="typecar" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="typecars" nillable="true" type="tns:typecars" />
+  <xs:element name="typecar" nillable="true" type="tns:typecar" />
 </xs:schema>

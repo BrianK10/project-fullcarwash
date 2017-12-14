@@ -12,25 +12,25 @@ namespace wcf_fullcarwash
     public interface IServiceTypeCars
     {
         [OperationContract]
-        List<typecars> gettypecars();
+        List<typecar> gettypecars();
         
         [OperationContract]
-        Boolean inserttypecar(typecars objtype);
+        Boolean inserttypecar(typecar objtype);
 
         [OperationContract]
-        Boolean updatetypecar(typecars objtype);
+        Boolean updatetypecar(typecar objtype);
 
         [OperationContract]
         Boolean deletetypecar(int id);
 
         [OperationContract]
-        typecars gettypecarById(int id);
+        typecar gettypecarById(int id);
     }
 
     [DataContract]
     [Serializable]
 
-    public class typecars
+    public class typecar
     {
         private int _id;
 
@@ -44,7 +44,7 @@ namespace wcf_fullcarwash
         private string _typecar;
 
         [DataMember]
-        public string typecar
+        public string nametypecar
         {
             get { return _typecar; }
             set { _typecar = value; }

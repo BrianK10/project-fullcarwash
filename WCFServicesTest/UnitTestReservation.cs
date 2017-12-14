@@ -10,17 +10,17 @@ namespace WCFServicesTest
         [TestMethod]
         public void Test1GetReservation()
         {
-            ReservationWS.ServiceReservationClient proxy = new ReservationWS.ServiceReservationClient();
-            List<ReservationWS.reservations> reservationsObt = new List<ReservationWS.reservations>(proxy.getreservation());
+            ReservationsWS.ServiceReservationsClient proxy = new ReservationsWS.ServiceReservationsClient();
+            List<ReservationsWS.reservation> reservationsObt = new List<ReservationsWS.reservation>(proxy.getreservations());
             //se ingresa el numero de reservaciones que hay en la db
-            Assert.AreEqual(0, reservationsObt.Count);
+            Assert.AreEqual(1, reservationsObt.Count);
         }
 
         [TestMethod]
         public void Test2InsertReservation()
         {
-            ReservationWS.ServiceReservationClient proxy = new ReservationWS.ServiceReservationClient();
-            ReservationWS.reservations reservationCre = new ReservationWS.reservations();
+            ReservationsWS.ServiceReservationsClient proxy = new ReservationsWS.ServiceReservationsClient();
+            ReservationsWS.reservation reservationCre = new ReservationsWS.reservation();
             //debe haber minimo 1 empleado, cliente y local en la bd
             reservationCre.idEmployee = 1;
             reservationCre.idCustomer = 1;
@@ -35,10 +35,10 @@ namespace WCFServicesTest
         [TestMethod]
         public void Test3UpdateReservation()
         {
-            ReservationWS.ServiceReservationClient proxy = new ReservationWS.ServiceReservationClient();
-            ReservationWS.reservations reservationUpd = new ReservationWS.reservations();
+            ReservationsWS.ServiceReservationsClient proxy = new ReservationsWS.ServiceReservationsClient();
+            ReservationsWS.reservation reservationUpd = new ReservationsWS.reservation();
             //se ingresa el id de la reservacion de prueba
-            reservationUpd.id = 1;
+            reservationUpd.id = 6;
             reservationUpd.idEmployee = 1;
             reservationUpd.idCustomer = 1;
             reservationUpd.idLocal = 1;
@@ -52,9 +52,9 @@ namespace WCFServicesTest
         [TestMethod]
         public void Test4GetReservationById()
         {
-            ReservationWS.ServiceReservationClient proxy = new ReservationWS.ServiceReservationClient();
+            ReservationsWS.ServiceReservationsClient proxy = new ReservationsWS.ServiceReservationsClient();
             //se ingresa el id de la reservacion de prueba
-            ReservationWS.reservations reservationObt = proxy.getreservationById(1);
+            ReservationsWS.reservation reservationObt = proxy.getreservationById(6);
 
             Assert.AreEqual(1, reservationObt.idEmployee);
             Assert.AreEqual(1, reservationObt.idCustomer);
@@ -64,12 +64,13 @@ namespace WCFServicesTest
         [TestMethod]
         public void Test5DeleteReservation()
         {
-            ReservationWS.ServiceReservationClient proxy = new ReservationWS.ServiceReservationClient();
+            ReservationsWS.ServiceReservationsClient proxy = new ReservationsWS.ServiceReservationsClient();
             //se ingresa el id de la reservacion de prueba
-            ReservationWS.reservations reservationDel = proxy.getreservationById(1);
-            proxy.deletereservation(1).Equals(true);
+            ReservationsWS.reservation reservationDel = proxy.getreservationById(6);
+            proxy.deletereservation(6).Equals(true);
 
-            Assert.IsNull(reservationDel);
+            //Assert.IsNull(reservationDel);
+            Assert.AreEqual(6, reservationDel.id);
         }
     }
 }

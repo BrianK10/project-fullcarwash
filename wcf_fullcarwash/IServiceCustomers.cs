@@ -9,30 +9,30 @@ namespace wcf_fullcarwash
 {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IService1" en el código y en el archivo de configuración a la vez.
     [ServiceContract]
-    public interface IServiceCustomer
+    public interface IServiceCustomers
     {
         [OperationContract]
-        List<customers> getcustomers();
+        List<customer> getcustomers();
 
         [OperationContract]
-        Boolean insertcustomer(customers objcustomer);
+        Boolean insertcustomer(customer objcustomer);
 
         [OperationContract]
-        Boolean updatecustomer(customers objcustomer);
+        Boolean updatecustomer(customer objcustomer);
 
         [OperationContract]
         Boolean deletecustomer(int id);
 
         [OperationContract]
-        customers getcustomerById(int id);
+        customer getcustomerById(int id);
 
         [OperationContract]
-        customers getcustomerLogin(string email, string password);
+        customer getcustomerLogin(string email, string password);
     }
 
     [DataContract]
     [Serializable]
-    public class customers
+    public class customer
     {
         private int _id;
 

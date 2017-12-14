@@ -13,20 +13,20 @@ namespace wcf_fullcarwash
     {
         bool value;      
 
-        public List<typecars> gettypecars()
+        public List<typecar> gettypecars()
         {
             fullcarwashEntities model = new fullcarwashEntities();
-            List<typecars> objlsttypecar = new List<typecars>();
+            List<typecar> objlsttypecar = new List<typecar>();
 
             try
             {
                 var query = model.SP_SELECT_TYPECARS();
                 foreach (var result in query)
                 {
-                    typecars objtypecar = new typecars();
+                    typecar objtypecar = new typecar();
 
                     objtypecar.id = Convert.ToInt16(result.idCar);
-                    objtypecar.typecar = result.typeCar;
+                    objtypecar.nametypecar = result.typeCar;
                     objtypecar.price = Convert.ToDouble(result.price);
                     
 
@@ -41,7 +41,7 @@ namespace wcf_fullcarwash
             return objlsttypecar;
         }
 
-        public bool inserttypecar(typecars objtype)
+        public bool inserttypecar(typecar objtype)
         {
             fullcarwashEntities model = new fullcarwashEntities();
 
@@ -49,7 +49,7 @@ namespace wcf_fullcarwash
             {
                 TypeCars objtypecar = new TypeCars();
 
-                objtypecar.typeCar = objtype.typecar;
+                objtypecar.typeCar = objtype.nametypecar;
                 objtypecar.price = Convert.ToDecimal(objtype.price);
                 
                 
@@ -67,7 +67,7 @@ namespace wcf_fullcarwash
             return value;
         }
 
-        public bool updatetypecar(typecars objtype)
+        public bool updatetypecar(typecar objtype)
         {
             fullcarwashEntities model = new fullcarwashEntities();
             try
@@ -77,7 +77,7 @@ namespace wcf_fullcarwash
                                     select objt).FirstOrDefault();
 
                 objtyp.idCar = objtype.id;
-                objtyp.typeCar = objtype.typecar;
+                objtyp.typeCar = objtype.nametypecar;
                 objtyp.price = Convert.ToDecimal(objtype.price);
                 
 
@@ -117,10 +117,10 @@ namespace wcf_fullcarwash
             return value;
         }
 
-        public typecars gettypecarById(int id)
+        public typecar gettypecarById(int id)
         {
             fullcarwashEntities model = new fullcarwashEntities();
-            typecars objtype = new typecars();
+            typecar objtype = new typecar();
 
             try
             {
@@ -129,7 +129,7 @@ namespace wcf_fullcarwash
                                    select objt).FirstOrDefault();
 
                 objtype.id = objtyp.idCar;
-                objtype.typecar= objtyp.typeCar;
+                objtype.nametypecar = objtyp.typeCar;
                 objtype.price = Convert.ToDouble(objtyp.price);
                 
                 

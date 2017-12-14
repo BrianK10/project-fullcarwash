@@ -9,20 +9,20 @@ using System.Text;
 namespace wcf_fullcarwash
 {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "ServiceLocal" en el código y en el archivo de configuración a la vez.
-    public class ServiceLocal : IServiceLocal
+    public class ServiceLocals : IServiceLocals
     {
         bool value;
-        public List<locals> getlocals()
+        public List<local> getlocals()
         {
             fullcarwashEntities model = new fullcarwashEntities();
-            List<locals> objlstlocal = new List<locals>();
+            List<local> objlstlocal = new List<local>();
 
             try
             {
                 var query = model.SP_SELECT_LOCALS();
                 foreach (var result in query)
                 {
-                    locals objlocal = new locals();
+                    local objlocal = new local();
 
                     objlocal.id = result.idLocal;
                     objlocal.name = result.name;
@@ -40,7 +40,7 @@ namespace wcf_fullcarwash
             return objlstlocal;
         }
 
-        public Boolean insertlocal(locals objloc)
+        public Boolean insertlocal(local objloc)
         {
             fullcarwashEntities model = new fullcarwashEntities();
 
@@ -65,7 +65,7 @@ namespace wcf_fullcarwash
             return value;
         }
 
-        public Boolean updatelocal(locals objlocal)
+        public Boolean updatelocal(local objlocal)
         {
             fullcarwashEntities model = new fullcarwashEntities();
             try
@@ -115,10 +115,10 @@ namespace wcf_fullcarwash
             return value;
         }
 
-        public locals getlocalById(int id)
+        public local getlocalById(int id)
         {
             fullcarwashEntities model = new fullcarwashEntities();
-            locals objlocal = new locals();
+            local objlocal = new local();
 
             try
             {

@@ -9,14 +9,14 @@
   <xs:element name="gettypecarsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="gettypecarsResult" nillable="true" type="q1:ArrayOftypecars" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="gettypecarsResult" nillable="true" type="q1:ArrayOftypecar" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="inserttypecar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="objtype" nillable="true" type="q2:typecars" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="objtype" nillable="true" type="q2:typecar" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -30,7 +30,7 @@
   <xs:element name="updatetypecar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="objtype" nillable="true" type="q3:typecars" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="objtype" nillable="true" type="q3:typecar" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -65,7 +65,7 @@
   <xs:element name="gettypecarByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="gettypecarByIdResult" nillable="true" type="q4:typecars" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="gettypecarByIdResult" nillable="true" type="q4:typecar" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -9,14 +9,14 @@
   <xs:element name="getemployeesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="getemployeesResult" nillable="true" type="q1:ArrayOfemployees" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="getemployeesResult" nillable="true" type="q1:ArrayOfemployee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="insertemployee">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="objemp" nillable="true" type="q2:employees" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="objemp" nillable="true" type="q2:employee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -30,7 +30,7 @@
   <xs:element name="updateemployee">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="objem" nillable="true" type="q3:employees" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="objem" nillable="true" type="q3:employee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -65,7 +65,7 @@
   <xs:element name="getemployeeByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="getemployeeByIdResult" nillable="true" type="q4:employees" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="getemployeeByIdResult" nillable="true" type="q4:employee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -80,7 +80,7 @@
   <xs:element name="getemployeeLoginResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="getemployeeLoginResult" nillable="true" type="q5:employees" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/wcf_fullcarwash" minOccurs="0" name="getemployeeLoginResult" nillable="true" type="q5:employee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

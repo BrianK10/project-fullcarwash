@@ -9,28 +9,28 @@ namespace wcf_fullcarwash
 {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IServiceLocal" en el código y en el archivo de configuración a la vez.
     [ServiceContract]
-    public interface IServiceLocal
+    public interface IServiceLocals
     {
         [OperationContract]
-        List<locals> getlocals();
+        List<local> getlocals();
         
         [OperationContract]
-        Boolean insertlocal(locals objloc);
+        Boolean insertlocal(local objloc);
 
         [OperationContract]
-        Boolean updatelocal(locals objlocal);
+        Boolean updatelocal(local objlocal);
 
         [OperationContract]
         Boolean deletelocal(int id);
 
         [OperationContract]
-        locals getlocalById(int id);
+        local getlocalById(int id);
     }
 
     [DataContract]
     [Serializable]
 
-    public class locals
+    public class local
     {
         private int _id;
 
