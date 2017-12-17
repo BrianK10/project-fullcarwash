@@ -25,6 +25,9 @@ namespace wcf_fullcarwash
 
         [OperationContract]
         detailreservation getdetailreservationById(int id);
+
+        [OperationContract]
+        detailreservation getdetailreservationByIdReservation(int id);
     }
 
     [DataContract]
@@ -121,6 +124,14 @@ namespace wcf_fullcarwash
         {
             get { return _address; }
             set { _address = value; }
+        }
+
+        private string _typeservice;
+        [DataMember]
+        public string typeservice
+        {
+            get { return _typeservice; }
+            set { _typeservice = value; }
         }
     }
 }

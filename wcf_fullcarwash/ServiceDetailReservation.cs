@@ -29,6 +29,7 @@ namespace wcf_fullcarwash
 
                     objdetail.idservice = result.idService;
                     objdetail.nameService = result.nameService;
+                    objdetail.typeservice = result.typeService;
 
                     objdetail.idcar = result.idCar;
                     objdetail.typecar = result.typeCar;
@@ -151,8 +152,7 @@ namespace wcf_fullcarwash
                 objdetail.id = objdet.idDetail;
                 objdetail.idreservation = objdet.idReservation;
                 objdetail.idservice = objdet.idService;
-                objdetail.idcar = objdet.idCar;
-
+                objdetail.idcar = objdet.idCar;                
                 objdetail.priceservice = Convert.ToDouble(objdet.priceService);
                 objdetail.pricetypecar = Convert.ToDouble(objdet.priceTypeCar);
                 objdetail.fullpayment = Convert.ToDouble(objdet.fullPayment);
@@ -163,6 +163,44 @@ namespace wcf_fullcarwash
             {
                 ex.Message.ToString();
                 throw ex;
+            }
+            return objdetail;
+        }
+
+        public detailreservation getdetailreservationByIdReservation(int id)
+        {
+            fullcarwashEntities model = new fullcarwashEntities();
+            detailreservation objdetail = new detailreservation();
+
+            try
+            {
+                var query = model.SP_SELECT_DETAILRESERVATION_ByRESERVATION(id);
+                foreach (var result in query)
+                {
+                    objdetail = new detailreservation();
+
+                    objdetail.id = result.idReservation;
+                    objdetail.idreservation = result.idReservation;
+
+                    objdetail.idservice = result.idService;
+                    objdetail.nameService = result.nameService;
+                    objdetail.typeservice = result.typeService;
+
+                    objdetail.idcar = result.idCar;
+                    objdetail.typecar = result.typeCar;
+
+                    objdetail.priceservice = Convert.ToDouble(result.priceService);
+                    objdetail.pricetypecar = Convert.ToDouble(result.priceTypeCar);
+                    objdetail.fullpayment = Convert.ToDouble(result.fullPayment);
+                    objdetail.carRegistration = result.carRegistration;
+                    objdetail.address = result.address;
+
+                }
+            }
+            catch (EntityException exception)
+            {
+                throw new Exception(exception.Message);
+
             }
             return objdetail;
         }

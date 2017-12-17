@@ -170,6 +170,9 @@
         </Association>
         <Function Name="SP_SELECT_CUSTOMERS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_SELECT_DETAILRESERVATION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_SELECT_DETAILRESERVATION_ByRESERVATION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idReservation" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_SELECT_EMPLOYEES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_SELECT_LOCALS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_SELECT_RESERVATION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -287,6 +290,9 @@
           <FunctionImport Name="SP_SELECT_DETAILRESERVATION" ReturnType="Collection(fullcarwashModel.SP_SELECT_DETAILRESERVATION_Result)" />
           <FunctionImport Name="SP_SELECT_SERVICES" ReturnType="Collection(fullcarwashModel.SP_SELECT_SERVICES_Result)" />
           <FunctionImport Name="SP_SELECT_TYPECARS" ReturnType="Collection(fullcarwashModel.SP_SELECT_TYPECARS_Result)" />
+          <FunctionImport Name="SP_SELECT_DETAILRESERVATION_ByRESERVATION" ReturnType="Collection(fullcarwashModel.SP_SELECT_DETAILRESERVATION_ByRESERVATION_Result)">
+            <Parameter Name="idReservation" Mode="In" Type="Int32" />
+          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="SP_SELECT_CUSTOMERS_Result">
           <Property Type="Int32" Name="idCustomer" Nullable="false" />
@@ -517,6 +523,20 @@
           <Property Type="Int32" Name="idCar" Nullable="false" />
           <Property Type="String" Name="typeCar" Nullable="false" MaxLength="50" />
         </ComplexType>
+        <ComplexType Name="SP_SELECT_DETAILRESERVATION_ByRESERVATION_Result">
+          <Property Type="Int32" Name="idDetail" Nullable="false" />
+          <Property Type="Int32" Name="idReservation" Nullable="false" />
+          <Property Type="Int32" Name="idService" Nullable="false" />
+          <Property Type="String" Name="nameService" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="typeService" Nullable="false" />
+          <Property Type="Int32" Name="idCar" Nullable="false" />
+          <Property Type="String" Name="typeCar" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="priceService" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="priceTypeCar" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="fullPayment" Nullable="false" Precision="19" />
+          <Property Type="String" Name="carRegistration" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="false" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -700,6 +720,24 @@
               <ComplexTypeMapping TypeName="fullcarwashModel.SP_SELECT_TYPECARS_Result">
                 <ScalarProperty Name="idCar" ColumnName="idCar" />
                 <ScalarProperty Name="typeCar" ColumnName="typeCar" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SELECT_DETAILRESERVATION_ByRESERVATION" FunctionName="fullcarwashModel.Store.SP_SELECT_DETAILRESERVATION_ByRESERVATION">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="fullcarwashModel.SP_SELECT_DETAILRESERVATION_ByRESERVATION_Result">
+                <ScalarProperty Name="idDetail" ColumnName="idDetail" />
+                <ScalarProperty Name="idReservation" ColumnName="idReservation" />
+                <ScalarProperty Name="idService" ColumnName="idService" />
+                <ScalarProperty Name="nameService" ColumnName="nameService" />
+                <ScalarProperty Name="typeService" ColumnName="typeService" />
+                <ScalarProperty Name="idCar" ColumnName="idCar" />
+                <ScalarProperty Name="typeCar" ColumnName="typeCar" />
+                <ScalarProperty Name="priceService" ColumnName="priceService" />
+                <ScalarProperty Name="priceTypeCar" ColumnName="priceTypeCar" />
+                <ScalarProperty Name="fullPayment" ColumnName="fullPayment" />
+                <ScalarProperty Name="carRegistration" ColumnName="carRegistration" />
+                <ScalarProperty Name="address" ColumnName="address" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

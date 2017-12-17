@@ -104,6 +104,9 @@
     <Compile Include="SP_SELECT_CUSTOMERS_Result.cs">
       <DependentUpon>fullcarwash.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_SELECT_DETAILRESERVATION_ByRESERVATION_Result.cs">
+      <DependentUpon>fullcarwash.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_SELECT_DETAILRESERVATION_Result.cs">
       <DependentUpon>fullcarwash.tt</DependentUpon>
     </Compile>
