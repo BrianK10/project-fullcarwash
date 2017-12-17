@@ -26,7 +26,7 @@ namespace wcf_fullcarwash
 
                     objdetail.id = result.idReservation;
                     objdetail.idreservation = result.idReservation;
-                    
+
                     objdetail.idservice = result.idService;
                     objdetail.nameService = result.nameService;
 
@@ -36,6 +36,8 @@ namespace wcf_fullcarwash
                     objdetail.priceservice = Convert.ToDouble(result.priceService);
                     objdetail.pricetypecar = Convert.ToDouble(result.priceTypeCar);
                     objdetail.fullpayment = Convert.ToDouble(result.fullPayment);
+                    objdetail.carRegistration = result.carRegistration;
+                    objdetail.address = result.address;
 
 
                     objlstdetail.Add(objdetail);
@@ -63,7 +65,8 @@ namespace wcf_fullcarwash
                 objdet.priceService = Convert.ToDecimal(objdetail.priceservice);
                 objdet.priceTypeCar = Convert.ToDecimal(objdetail.pricetypecar);
                 objdet.fullPayment  = Convert.ToDecimal(objdetail.fullpayment);
-
+                objdet.carRegistration = objdetail.carRegistration;
+                objdet.address = objdetail.address;
 
                 model.DetailReservation.Add(objdet);
                 model.SaveChanges();
@@ -95,6 +98,8 @@ namespace wcf_fullcarwash
                 objdet.priceService = Convert.ToDecimal(objdetail.priceservice);
                 objdet.priceTypeCar = Convert.ToDecimal(objdetail.pricetypecar);
                 objdet.fullPayment = Convert.ToDecimal(objdetail.fullpayment);
+                objdet.carRegistration = objdetail.carRegistration;
+                objdet.address = objdetail.address;
 
                 model.SaveChanges();
                 value = true;
@@ -151,7 +156,8 @@ namespace wcf_fullcarwash
                 objdetail.priceservice = Convert.ToDouble(objdet.priceService);
                 objdetail.pricetypecar = Convert.ToDouble(objdet.priceTypeCar);
                 objdetail.fullpayment = Convert.ToDouble(objdet.fullPayment);
-
+                objdet.carRegistration = objdetail.carRegistration;
+                objdetail.address = objdet.address;
             }
             catch (Exception ex)
             {

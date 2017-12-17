@@ -12,25 +12,28 @@ namespace wcf_fullcarwash
     public interface IServiceServices
     {
         [OperationContract]
-        List<service> getservices();
+        List<servicesf> getservices();
         
         [OperationContract]
-        Boolean insertservice(service objserv);
+        Boolean insertservice(servicesf objserv);
 
         [OperationContract]
-        Boolean updateservice(service objservice);
+        Boolean updateservice(servicesf objservice);
 
         [OperationContract]
         Boolean deleteservice(int id);
 
         [OperationContract]
-        service getserviceById(int id);
+        servicesf getserviceById(int id);
+
+        [OperationContract]
+        servicesf getFilterService(string _service, string _type, int _idcar);
     }
 
     [DataContract]
     [Serializable]
 
-    public class service
+    public class servicesf
     {
         private int _id;
 
@@ -84,6 +87,24 @@ namespace wcf_fullcarwash
         {
             get { return _price; }
             set { _price = value; }
+        }
+
+        private int _idCar;
+
+        [DataMember]
+        public int idCar
+        {
+            get { return _idCar; }
+            set { _idCar = value; }
+        }
+
+        private string _nameCar;
+
+        [DataMember]
+        public string nameCar
+        {
+            get { return _nameCar; }
+            set { _nameCar = value; }
         }
     }
 }

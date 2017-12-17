@@ -106,7 +106,22 @@ namespace wcf_fullcarwash
             get { return _fullPayment; }
             set { _fullPayment = value; }
         }
-       
+
+        private string _carRegistration;
+        [DataMember]
+        public string carRegistration
+        {
+            get { return _carRegistration; }
+            set { _carRegistration = value; }
+        }
+
+        private string _address;
+        [DataMember]
+        public string address
+        {
+            get { return _address; }
+            set { _address = value; }
+        }
     }
 }
 

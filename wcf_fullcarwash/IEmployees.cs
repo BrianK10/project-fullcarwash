@@ -74,8 +74,7 @@ namespace wcf_fullcarwash
         {
             get { return _gender; }
             set { _gender = value; }
-        }
-        private DateTime _birthdate;
+        }       
 
         private string _email;
 

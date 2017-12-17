@@ -47,15 +47,16 @@ namespace wcf_fullcarwash
             return objlstreservation;
         }
 
-        public bool insertreservation(reservations objreserv)
+        public int insertreservation(reservations objreserv)
         {
+            int _idReservation = 0;
             fullcarwashEntities model = new fullcarwashEntities();
 
             try
             {
                 Reservation objreservation = new Reservation();
 
-                objreservation.idReservation = objreserv.id;
+                
                 objreservation.idEmployee = objreserv.idEmployee;
                 objreservation.idCustomer = objreserv.idCustomer;
                 objreservation.idLocal = objreserv.idLocal;
@@ -65,13 +66,22 @@ namespace wcf_fullcarwash
                 model.SaveChanges();
 
                 value = true;
+
+                List<Reservation> objres = (from objr in model.Reservation
+                                      //where objr.idEmployee == objreserv.idEmployee && objr.idCustomer == objreserv.idCustomer && objr.idLocal == objreserv.idLocal
+                                      select objr).OrderByDescending(x => x.idReservation).ToList();
+                foreach (var item in objres)
+                {
+                    _idReservation = item.idReservation;
+                    break;
+                }                
             }
             catch (EntityException ex)
             {
                 ex.Message.ToString();
-                value = false;
+                _idReservation = -1;
             }
-            return value;
+            return _idReservation;
         }
 
         public bool updatereservation(reservations objreserv)
@@ -147,6 +157,30 @@ namespace wcf_fullcarwash
                 throw ex;
             }
             return objreserv;
+        }
+
+        public int getreservationByCustomer(int idCustomer)
+        {
+            int quantity = 0;
+            fullcarwashEntities model = new fullcarwashEntities();
+            reservations objreserv = new reservations();
+
+            try
+            {
+                List<Reservation> objres = (from objr in model.Reservation
+                                      where objr.idCustomer == idCustomer
+                                      select objr).ToList();
+
+                quantity = objres.Count;
+
+                objreserv.promotions = quantity;
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                throw ex;
+            }
+            return quantity;
         }
     }
 }

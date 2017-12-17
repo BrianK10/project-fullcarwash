@@ -17,13 +17,15 @@ namespace wcf_fullcarwash
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TypeCars()
         {
+            this.Services = new HashSet<Services>();
             this.DetailReservation = new HashSet<DetailReservation>();
         }
     
         public int idCar { get; set; }
         public string typeCar { get; set; }
-        public decimal price { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Services> Services { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetailReservation> DetailReservation { get; set; }
     }

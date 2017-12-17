@@ -15,7 +15,7 @@ namespace wcf_fullcarwash
         List<reservations> getreservation();
         
         [OperationContract]
-        bool insertreservation(reservations objreserv);
+        int insertreservation(reservations objreserv);
 
         [OperationContract]
         bool updatereservation(reservations objreserv);
@@ -25,6 +25,9 @@ namespace wcf_fullcarwash
 
         [OperationContract]
         reservations getreservationById(int id);
+
+        [OperationContract]
+        int getreservationByCustomer(int idCustomer);
     }
 
     [DataContract]
@@ -87,6 +90,13 @@ namespace wcf_fullcarwash
         {
             get { return _nameLocal; }
             set { _nameLocal = value; }
+        }
+        private int _promotions;
+        [DataMember]
+        public int promotions
+        {
+            get { return _promotions; }
+            set { _promotions = value; }
         }
        
     }

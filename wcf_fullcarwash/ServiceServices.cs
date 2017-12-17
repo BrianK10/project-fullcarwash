@@ -13,17 +13,17 @@ namespace wcf_fullcarwash
     {
         bool value;
 
-        public List<service> getservices()
+        public List<servicesf> getservices()
         {
             fullcarwashEntities model = new fullcarwashEntities();
-            List<service> objlstservice = new List<service>();            
+            List<servicesf> objlstservice = new List<servicesf>();            
             
             try
             {
                 var query = model.SP_SELECT_SERVICES();
                 foreach (var result in query)
                 {
-                    service objservice = new service();
+                    servicesf objservice = new servicesf();
 
                     objservice.id = Convert.ToInt16(result.idService);
                     objservice.idLocal = Convert.ToInt16(result.idLocal);
@@ -31,6 +31,8 @@ namespace wcf_fullcarwash
                     objservice.name = result.nameService;
                     objservice.typeservice = result.typeService;
                     objservice.price = Convert.ToDouble(result.price);
+                    objservice.idCar = Convert.ToInt16(result.idCar);
+                    objservice.nameCar = result.Auto;
 
                     objlstservice.Add(objservice);
                 }
@@ -43,7 +45,7 @@ namespace wcf_fullcarwash
             return objlstservice;
         }
 
-        public bool insertservice(service objserv)
+        public bool insertservice(servicesf objserv)
         {
             fullcarwashEntities model = new fullcarwashEntities();
 
@@ -55,6 +57,8 @@ namespace wcf_fullcarwash
                 objservice.nameService = objserv.name;
                 objservice.typeService = objserv.typeservice;
                 objservice.price = Convert.ToDecimal(objserv.price);
+                objservice.idCar = Convert.ToInt16(objserv.idCar);
+                
 
                 model.Services.Add(objservice);
                 model.SaveChanges();
@@ -69,7 +73,7 @@ namespace wcf_fullcarwash
             return value;
         }
 
-        public bool updateservice(service objservice)
+        public bool updateservice(servicesf objservice)
         {
             fullcarwashEntities model = new fullcarwashEntities();
             try
@@ -82,6 +86,7 @@ namespace wcf_fullcarwash
                 objserv.nameService = objservice.name;
                 objserv.typeService = objservice.typeservice;
                 objserv.price = Convert.ToDecimal(objservice.price);
+                objservice.idCar = Convert.ToInt16(objserv.idCar);
 
                 model.SaveChanges();
                 value = true;
@@ -119,10 +124,10 @@ namespace wcf_fullcarwash
             return value;
         }
 
-        public service getserviceById(int id)
+        public servicesf getserviceById(int id)
         {
             fullcarwashEntities model = new fullcarwashEntities();
-            service objservice = new service();
+            servicesf objservice = new servicesf();
 
             try
             {
@@ -135,6 +140,33 @@ namespace wcf_fullcarwash
                 objservice.name = objserv.nameService;
                 objservice.typeservice= objserv.typeService;
                 objservice.price = Convert.ToDouble(objserv.price);
+                objservice.idCar = Convert.ToInt16(objserv.idCar);
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                throw ex;
+            }
+            return objservice;
+        }
+        public servicesf getFilterService(string _service, string _type, int _idcar)
+        {
+            fullcarwashEntities model = new fullcarwashEntities();
+            servicesf objservice = new servicesf();
+
+            try
+            {
+                Services objserv = (from objs in model.Services
+                                    where objs.nameService == _service && objs.typeService == _type && objs.idCar == _idcar && objs.idLocal == 1
+                                    select objs).FirstOrDefault();
+
+                objservice.id = Convert.ToInt16(objserv.idService);
+                objservice.idLocal = Convert.ToInt16(objserv.idLocal);
+                objservice.name = objserv.nameService;
+                objservice.typeservice = objserv.typeService;
+                objservice.price = Convert.ToDouble(objserv.price);
+                objservice.idCar = Convert.ToInt16(objserv.idCar);
+                
             }
             catch (Exception ex)
             {

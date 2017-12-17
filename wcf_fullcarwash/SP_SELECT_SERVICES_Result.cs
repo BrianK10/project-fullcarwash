@@ -18,6 +18,8 @@ namespace wcf_fullcarwash
         public string local { get; set; }
         public string nameService { get; set; }
         public string typeService { get; set; }
+        public int idCar { get; set; }
+        public string Auto { get; set; }
         public decimal price { get; set; }
     }
 }

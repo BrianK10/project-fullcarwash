@@ -24,9 +24,11 @@ namespace wcf_fullcarwash
         public Nullable<int> idLocal { get; set; }
         public string nameService { get; set; }
         public string typeService { get; set; }
+        public int idCar { get; set; }
         public decimal price { get; set; }
     
         public virtual Local Local { get; set; }
+        public virtual TypeCars TypeCars { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetailReservation> DetailReservation { get; set; }
     }

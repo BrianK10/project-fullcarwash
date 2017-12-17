@@ -26,9 +26,9 @@ namespace wcf_fullcarwash
         public Nullable<int> idLocal { get; set; }
     
         public virtual Customers Customers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetailReservation> DetailReservation { get; set; }
         public virtual Employees Employees { get; set; }
         public virtual Local Local { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DetailReservation> DetailReservation { get; set; }
     }
 }
