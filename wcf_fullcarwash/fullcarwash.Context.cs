@@ -78,5 +78,14 @@ namespace wcf_fullcarwash
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SELECT_DETAILRESERVATION_ByRESERVATION_Result>("SP_SELECT_DETAILRESERVATION_ByRESERVATION", idReservationParameter);
         }
+    
+        public virtual ObjectResult<SP_SELECT_CUSTOMERSByDNI_Result> SP_SELECT_CUSTOMERSByDNI(string dni)
+        {
+            var dniParameter = dni != null ?
+                new ObjectParameter("dni", dni) :
+                new ObjectParameter("dni", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SELECT_CUSTOMERSByDNI_Result>("SP_SELECT_CUSTOMERSByDNI", dniParameter);
+        }
     }
 }

@@ -28,6 +28,9 @@ namespace wcf_fullcarwash
 
         [OperationContract]
         customers getcustomerLogin(string email, string password);
+
+        [OperationContract]
+        customers getCustomerByDNI(string dni);
     }
 
     [DataContract]

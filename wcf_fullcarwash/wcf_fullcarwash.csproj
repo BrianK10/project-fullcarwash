@@ -101,6 +101,9 @@
     <Compile Include="ServiceTypeCars.cs" />
     <Compile Include="ServiceServices.cs" />
     <Compile Include="ServiceLocal.cs" />
+    <Compile Include="SP_SELECT_CUSTOMERSByDNI_Result.cs">
+      <DependentUpon>fullcarwash.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_SELECT_CUSTOMERS_Result.cs">
       <DependentUpon>fullcarwash.tt</DependentUpon>
     </Compile>

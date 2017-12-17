@@ -200,5 +200,39 @@ namespace wcf_fullcarwash
             }
             return objcust;
         }
+
+
+        public customers getCustomerByDNI(string dni)
+        {
+            fullcarwashEntities model = new fullcarwashEntities();
+            customers objcustomer = new customers();
+
+            try
+            {
+                Customers objc = (from objr in model.Customers
+                                      where objr.number_dni == dni
+                                      select objr).FirstOrDefault();
+                
+                objcustomer.id = objc.idCustomer;
+                objcustomer.firstname = objc.firstName;
+                    objcustomer.lastname = objc.lastName;
+                    objcustomer.fullname = objc.fullName;
+                    objcustomer.gender = objc.gender;
+                    objcustomer.birthdate = objc.birthdate;
+                    objcustomer.phone = objc.phone;
+                    objcustomer.email = objc.email;
+                    objcustomer.numberdni = objc.number_dni;
+                    objcustomer.address = objc.address;
+                    objcustomer.password = objc.password;
+
+                
+            }
+            catch (EntityException exception)
+            {
+                throw new Exception(exception.Message);
+
+            }
+            return objcustomer;
+        }
     }
 }

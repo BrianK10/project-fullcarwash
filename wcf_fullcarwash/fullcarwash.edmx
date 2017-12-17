@@ -169,6 +169,9 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="SP_SELECT_CUSTOMERS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_SELECT_CUSTOMERSByDNI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dni" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="SP_SELECT_DETAILRESERVATION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_SELECT_DETAILRESERVATION_ByRESERVATION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idReservation" Type="int" Mode="In" />
@@ -291,7 +294,10 @@
           <FunctionImport Name="SP_SELECT_SERVICES" ReturnType="Collection(fullcarwashModel.SP_SELECT_SERVICES_Result)" />
           <FunctionImport Name="SP_SELECT_TYPECARS" ReturnType="Collection(fullcarwashModel.SP_SELECT_TYPECARS_Result)" />
           <FunctionImport Name="SP_SELECT_DETAILRESERVATION_ByRESERVATION" ReturnType="Collection(fullcarwashModel.SP_SELECT_DETAILRESERVATION_ByRESERVATION_Result)">
-            <Parameter Name="idReservation" Mode="In" Type="Int32" />
+          <Parameter Name="idReservation" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_SELECT_CUSTOMERSByDNI" ReturnType="Collection(fullcarwashModel.SP_SELECT_CUSTOMERSByDNI_Result)">
+            <Parameter Name="dni" Mode="In" Type="String" />
           </FunctionImport>
           </EntityContainer>
         <ComplexType Name="SP_SELECT_CUSTOMERS_Result">
@@ -537,6 +543,19 @@
           <Property Type="String" Name="carRegistration" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="address" Nullable="false" />
         </ComplexType>
+        <ComplexType Name="SP_SELECT_CUSTOMERSByDNI_Result">
+          <Property Type="Int32" Name="idCustomer" Nullable="false" />
+          <Property Type="String" Name="firstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="lastName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="fullName" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="gender" Nullable="false" />
+          <Property Type="DateTime" Name="birthdate" Nullable="false" />
+          <Property Type="String" Name="phone" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="number_dni" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="password" Nullable="true" MaxLength="100" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -738,6 +757,23 @@
                 <ScalarProperty Name="fullPayment" ColumnName="fullPayment" />
                 <ScalarProperty Name="carRegistration" ColumnName="carRegistration" />
                 <ScalarProperty Name="address" ColumnName="address" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SELECT_CUSTOMERSByDNI" FunctionName="fullcarwashModel.Store.SP_SELECT_CUSTOMERSByDNI">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="fullcarwashModel.SP_SELECT_CUSTOMERSByDNI_Result">
+                <ScalarProperty Name="idCustomer" ColumnName="idCustomer" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="fullName" ColumnName="fullName" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="number_dni" ColumnName="number_dni" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="password" ColumnName="password" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
