@@ -55,11 +55,6 @@ namespace wcf_fullcarwash
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SELECT_RESERVATION_Result>("SP_SELECT_RESERVATION");
         }
     
-        public virtual ObjectResult<SP_SELECT_TYPECARS_Result> SP_SELECT_TYPECARS()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SELECT_TYPECARS_Result>("SP_SELECT_TYPECARS");
-        }
-    
         public virtual ObjectResult<SP_SELECT_DETAILRESERVATION_Result> SP_SELECT_DETAILRESERVATION()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SELECT_DETAILRESERVATION_Result>("SP_SELECT_DETAILRESERVATION");
@@ -68,6 +63,11 @@ namespace wcf_fullcarwash
         public virtual ObjectResult<SP_SELECT_SERVICES_Result> SP_SELECT_SERVICES()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SELECT_SERVICES_Result>("SP_SELECT_SERVICES");
+        }
+    
+        public virtual ObjectResult<SP_SELECT_TYPECARS_Result> SP_SELECT_TYPECARS()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SELECT_TYPECARS_Result>("SP_SELECT_TYPECARS");
         }
     }
 }

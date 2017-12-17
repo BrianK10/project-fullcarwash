@@ -13,7 +13,7 @@
         <AssociationConnector Association="fullcarwashModel.FK_Reservation_Employees" />
         <AssociationConnector Association="fullcarwashModel.FK_Reservation_Local" />
         <EntityTypeShape EntityType="fullcarwashModel.Services" Width="1.5" PointX="6.875" PointY="7" />
-        <EntityTypeShape EntityType="fullcarwashModel.TypeCars" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="fullcarwashModel.TypeCars" Width="1.5" PointX="3" PointY="9.625" />
         <AssociationConnector Association="fullcarwashModel.FK_Services_Local" />
         <AssociationConnector Association="fullcarwashModel.FK_Services_TypeCars" />
         <EntityTypeShape EntityType="fullcarwashModel.DetailReservation" Width="1.5" PointX="9.125" PointY="7.25" />

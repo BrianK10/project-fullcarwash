@@ -15,6 +15,5 @@ namespace wcf_fullcarwash
     {
         public int idCar { get; set; }
         public string typeCar { get; set; }
-        public decimal price { get; set; }
     }
 }

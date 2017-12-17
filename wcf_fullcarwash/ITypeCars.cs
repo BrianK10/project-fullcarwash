@@ -49,15 +49,5 @@ namespace wcf_fullcarwash
             get { return _typecar; }
             set { _typecar = value; }
         }
-
-
-        private double _price;
-
-        [DataMember]
-        public double price
-        {
-            get { return _price; }
-            set { _price = value; }
-        }
     }
 }
